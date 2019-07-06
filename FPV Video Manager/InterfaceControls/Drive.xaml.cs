@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Engine;
+using System.Threading;
 
 namespace FPV_Video_Manager.InterfaceControls
 {
@@ -22,6 +23,8 @@ namespace FPV_Video_Manager.InterfaceControls
     public partial class Drive : UserControl
     {
         public DriveInformation DI;
+        Thread T;
+        bool ThreadRunning = false;
 
         public Drive(DriveInformation _DI)
         {
@@ -32,9 +35,32 @@ namespace FPV_Video_Manager.InterfaceControls
             DriveNameTextBlock.Text = _DI.Name;
 
             if (_DI.isMonitoring)
+            {
                 MonitoringIc.Visibility = Visibility.Visible;
+                BeginFileManager();
+            }
             else
                 MonitoringIc.Visibility = Visibility.Collapsed;
+        }
+
+        public void BeginFileManager()
+        {
+            ThreadRunning = true;
+            T = new Thread(WorkingThread);
+            T.Start();
+        }
+
+        public void WorkingThread()
+        {
+            while (ThreadRunning && new GlobalEngineSwitch().AllEnginesRunning)
+            {
+                Thread.Sleep(1000);
+            }
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            ThreadRunning = false;
         }
     }
 }

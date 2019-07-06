@@ -84,6 +84,7 @@ namespace FPV_Video_Manager.InterfaceControls
         private void DestinationPathTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             bool validility = ValidateDirectoryPath(DestinationPathTextBox.Text);
+
             if (validility)
                 DestinationValidationIco.Visibility = Visibility.Visible;
             else
@@ -106,13 +107,22 @@ namespace FPV_Video_Manager.InterfaceControls
         {
             bool performSave = DisableMonitoringCheck();
 
-            SourceLabel.Visibility = Visibility.Collapsed;
-            SourcePathTextBox.Visibility = Visibility.Collapsed;
-            DestinationLabel.Visibility = Visibility.Collapsed;
-            DestinationPathTextBox.Visibility = Visibility.Collapsed;
-            SaveButton.Visibility = Visibility.Collapsed;
-            SourceValidationIco.Visibility = Visibility.Collapsed;
-            DestinationValidationIco.Visibility = Visibility.Collapsed;
+            if (DI.isMonitoring && performSave)
+            {
+                SourceLabel.Visibility = Visibility.Collapsed;
+                SourcePathTextBox.Visibility = Visibility.Collapsed;
+                DestinationLabel.Visibility = Visibility.Collapsed;
+                DestinationPathTextBox.Visibility = Visibility.Collapsed;
+                SaveButton.Visibility = Visibility.Collapsed;
+                SourceValidationIco.Visibility = Visibility.Collapsed;
+                DestinationValidationIco.Visibility = Visibility.Collapsed;
+            }
+            else if (DI.isMonitoring && !performSave)
+            {
+                MonitoringCheckBox.IsChecked = true;
+                e.Handled = true;
+                return;
+            }
 
             if (performSave)
             {
