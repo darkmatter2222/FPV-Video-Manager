@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPV Video Manager", "FPV Video Manager\FPV Video Manager.csproj", "{86DE2963-8A1C-4E45-9730-07F8EB1C1F0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPV Video Configuration", "FPV Video Configuration\FPV Video Configuration.csproj", "{0F4D1BB8-3CBB-4702-A742-7609BDFD84E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86DE2963-8A1C-4E45-9730-07F8EB1C1F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DE2963-8A1C-4E45-9730-07F8EB1C1F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DE2963-8A1C-4E45-9730-07F8EB1C1F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DE2963-8A1C-4E45-9730-07F8EB1C1F0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F4D1BB8-3CBB-4702-A742-7609BDFD84E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4D1BB8-3CBB-4702-A742-7609BDFD84E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4D1BB8-3CBB-4702-A742-7609BDFD84E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4D1BB8-3CBB-4702-A742-7609BDFD84E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C240EC8-A839-4A68-B105-7D6B5893D5A2}
+	EndGlobalSection
+EndGlobal
