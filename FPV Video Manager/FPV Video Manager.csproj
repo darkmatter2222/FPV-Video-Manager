@@ -124,7 +124,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="InterfaceControls\icon.png" />
+    <EmbeddedResource Include="InterfaceControls\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.csproj">
