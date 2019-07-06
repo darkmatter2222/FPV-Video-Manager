@@ -36,9 +36,9 @@
         </materialDesign:ColorZone>
         <Grid Grid.Row="1" Margin="0,0,0,1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="150*"/>
                 <ColumnDefinition Width="6*"/>
-                <ColumnDefinition Width="405*"/>
+                <ColumnDefinition Width="355*"/>
             </Grid.ColumnDefinitions>
             <Grid>
                 <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
                     <RowDefinition Height="343*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Available Drives" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="182" FontSize="16"/>
-                <ListBox x:Name="DrivesList" Grid.Row="1" SelectionChanged="DrivesList_SelectionChanged"/>
+                <ListBox x:Name="DrivesList" Grid.Row="1" SelectionChanged="DrivesList_SelectionChanged" HorizontalContentAlignment="Stretch"/>
             </Grid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="1" IsEnabled="False"/>
             <ContentControl Name="MainConfig" Grid.Column="2">

@@ -12,15 +12,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FPV_Video_Manager.InterfaceControls"
-             mc:Ignorable="d"  Height="20" MinWidth="80" Unloaded="UserControl_Unloaded">
+             mc:Ignorable="d"  Height="25.667" MinWidth="80" Unloaded="UserControl_Unloaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="93*"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="17"/>
+            <ColumnDefinition Width="33*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="DriveNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="D:\" Margin="6,2,0,2" Foreground="White" VerticalAlignment="Center" Height="16" Width="17" />
-        <materialDesign:PackIcon x:Name="MonitoringIc" Kind="ImageMove" Margin="1,2,0,0" HorizontalAlignment="Left" Width="16" Grid.Column="1" />
-        <Label Name="StatusLabel" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="2,-3,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="DriveNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="D:\" Margin="6,5,0,5" Foreground="White" VerticalAlignment="Center" Height="16" Width="20" />
+        <materialDesign:PackIcon x:Name="MonitoringIc" Kind="ImageMove" Margin="1,5,0,5" HorizontalAlignment="Center" Width="16" Grid.Column="1" VerticalAlignment="Stretch" Height="Auto" />
+        <Label Name="StatusLabel" Content="" Grid.Column="2" Margin="2,0,0,0" />
     </Grid>
 </UserControl>

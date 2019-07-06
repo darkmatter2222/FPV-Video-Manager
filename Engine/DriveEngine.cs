@@ -176,11 +176,15 @@ namespace Engine
     public class DriveInformation
     {
         public string Name = "";
+        public DateTime driveMountTime;
+        public string offloadFolderName = "";
 
         private JObject ConfigFile;
 
         public void LoadFromConfig()
         {
+            driveMountTime = DateTime.UtcNow;
+            offloadFolderName = $@"{driveMountTime.ToString().Replace("/","-").Replace("\\","-").Replace(":","-")}";
             try
             {
                 ConfigFile = JObject.Parse(File.ReadAllText($@"{Name}\FPVVideoManager.json"));

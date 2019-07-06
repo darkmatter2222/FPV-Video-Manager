@@ -51,9 +51,6 @@ namespace FPV_Video_Manager.InterfaceControls
             }
         }
 
-
-
-
         public bool ValidateDirectoryPath(string path)
         {
             bool valid = false;
@@ -163,6 +160,13 @@ namespace FPV_Video_Manager.InterfaceControls
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             DI.isMonitoring = true;
+
+            while (SourcePathTextBox.Text.Substring(SourcePathTextBox.Text.Length - 1, 1).Equals("\\"))
+                SourcePathTextBox.Text = SourcePathTextBox.Text.Substring(0, SourcePathTextBox.Text.Length - 1);
+
+            while (DestinationPathTextBox.Text.Substring(DestinationPathTextBox.Text.Length - 1, 1).Equals("\\"))
+                DestinationPathTextBox.Text = DestinationPathTextBox.Text.Substring(0, DestinationPathTextBox.Text.Length - 1);
+
             DI.source = SourcePathTextBox.Text;
             DI.destination = DestinationPathTextBox.Text;
 

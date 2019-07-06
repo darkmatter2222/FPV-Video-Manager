@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Engine;
 using System.Threading;
+using System.IO;
 
 namespace FPV_Video_Manager.InterfaceControls
 {
@@ -55,6 +56,27 @@ namespace FPV_Video_Manager.InterfaceControls
             while (ThreadRunning && new GlobalEngineSwitch().AllEnginesRunning)
             {
                 Thread.Sleep(1000);
+                try
+                {
+                    Dispatcher.Invoke(new Action(() => StatusLabel.Content = "Looking for Content..."));
+
+                    string[] SourceFiles = Directory.GetFiles(DI.source);
+
+                    if (SourceFiles.Length > 0)
+                    {
+                        Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"{SourceFiles.Length} Files Found..."));
+                        Thread.Sleep(500);
+                        //if(!Directory.Exists($@"{DI.destination}\"))
+                        //Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"{SourceFiles.Length} Files Found..."));
+
+
+                    }
+
+                }
+                catch
+                {
+                    
+                }
             }
         }
 
