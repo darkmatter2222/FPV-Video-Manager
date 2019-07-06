@@ -55,7 +55,7 @@ namespace FPV_Video_Manager.InterfaceControls
         {
             while (ThreadRunning && new GlobalEngineSwitch().AllEnginesRunning)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
                 try
                 {
                     Dispatcher.Invoke(new Action(() => StatusLabel.Content = "Looking for Content..."));
@@ -65,13 +65,20 @@ namespace FPV_Video_Manager.InterfaceControls
                     if (SourceFiles.Length > 0)
                     {
                         Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"{SourceFiles.Length} Files Found..."));
-                        Thread.Sleep(500);
-                        //if(!Directory.Exists($@"{DI.destination}\"))
-                        //Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"{SourceFiles.Length} Files Found..."));
 
+                        Thread.Sleep(100);
 
+                        if (!Directory.Exists($@"{DI.destination}\{DI.offloadFolderName}"))
+                            Directory.CreateDirectory($@"{DI.destination}\{DI.offloadFolderName}");
+
+                        Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"Moving File..."));
+
+                        File.Move(SourceFiles[0], $@"{DI.destination}\{DI.offloadFolderName}\{SourceFiles[0].ToUpper().Replace(DI.source.ToUpper(),"")}");
+
+                        Thread.Sleep(100);
+
+                        Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"File Moved..."));
                     }
-
                 }
                 catch
                 {
