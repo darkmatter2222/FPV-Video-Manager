@@ -60,7 +60,7 @@ namespace FPV_Video_Manager.InterfaceControls
                 {
                     Dispatcher.Invoke(new Action(() => StatusLabel.Content = "Looking for Content..."));
 
-                    string[] SourceFiles = Directory.GetFiles(DI.source);
+                    string[] SourceFiles = Directory.GetFiles($@"{DI.Name}{DI.source}");
 
                     if (SourceFiles.Length > 0)
                     {
@@ -73,7 +73,7 @@ namespace FPV_Video_Manager.InterfaceControls
 
                         Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"Moving File..."));
 
-                        File.Move(SourceFiles[0], $@"{DI.destination}\{DI.offloadFolderName}\{SourceFiles[0].ToUpper().Replace(DI.source.ToUpper(),"")}");
+                        File.Move(SourceFiles[0], $@"{DI.destination}\{DI.offloadFolderName}\{SourceFiles[0].ToUpper().Replace($@"{DI.Name}{DI.source}".ToUpper(),"")}");
 
                         Thread.Sleep(100);
 

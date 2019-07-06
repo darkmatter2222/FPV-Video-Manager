@@ -167,7 +167,7 @@ namespace FPV_Video_Manager.InterfaceControls
             while (DestinationPathTextBox.Text.Substring(DestinationPathTextBox.Text.Length - 1, 1).Equals("\\"))
                 DestinationPathTextBox.Text = DestinationPathTextBox.Text.Substring(0, DestinationPathTextBox.Text.Length - 1);
 
-            DI.source = SourcePathTextBox.Text;
+            DI.source = SourcePathTextBox.Text.Replace(DI.Name, "");
             DI.destination = DestinationPathTextBox.Text;
 
             DI.save();
