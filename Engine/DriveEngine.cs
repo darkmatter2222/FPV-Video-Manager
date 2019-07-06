@@ -257,7 +257,7 @@ namespace Engine
         {
             if (ConfigFile == null)
             {
-                File.Create($@"{Name}\FPVVideoManager.json");
+                File.Create($@"{Name}\FPVVideoManager.json").Close();
                 JObject JO = JObject.Parse("{\"Version\": \"1\",\"Monitoring\": \"False\",\"Source\":\"\",\"Destination\":\"\",\"DeleteAfterMobe\":\"False\"}");
                 File.WriteAllText($@"{Name}\FPVVideoManager.json", JO.ToString());
                 ConfigFile = JO;
