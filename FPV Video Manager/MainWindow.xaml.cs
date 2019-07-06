@@ -29,7 +29,6 @@ namespace FPV_Video_Manager
         public MainWindow()
         {
             InitializeComponent();
-            BAL.Initialize init = new BAL.Initialize();
             driveEngine.DriveChange += DriveEngine_DriveChange;
             driveEngine.InitializeEngine();
         }
@@ -42,9 +41,9 @@ namespace FPV_Video_Manager
         public void UpdateDrivesList(List<DriveInformation> _LDI)
         {
             DrivesList.Items.Clear();
-
-            foreach(var drive in _LDI)
-                DrivesList.Items.Add(new InterfaceControls.Drive(driveName:drive.Name, monitoring:drive.isMonitoring));
+            DrivesList.SelectedIndex = -1;
+            foreach (var drive in _LDI)
+                DrivesList.Items.Add(new InterfaceControls.Drive(_DI:drive));
         }
 
         private void ColorZone_MouseDown(object sender, MouseButtonEventArgs e)
@@ -62,28 +61,12 @@ namespace FPV_Video_Manager
         {
             if (DrivesList.SelectedIndex > -1)
             {
-                ShowWorkingRegion();
+                MainConfig.Content = new InterfaceControls.ConfigItem(((InterfaceControls.Drive)e.AddedItems[0]).DI);
             }
             else
             {
-                HideWorkingRegion();
+                MainConfig.Content = null;
             }
-        }
-
-        private void HideWorkingRegion()
-        {
-            SourceLabel.Visibility = Visibility.Collapsed;
-            SourcePathTextBox.Visibility = Visibility.Collapsed;
-            DestinationLabel.Visibility = Visibility.Collapsed;
-            DestinationPathTextBox.Visibility = Visibility.Collapsed;
-        }
-
-        private void ShowWorkingRegion()
-        {
-            SourceLabel.Visibility = Visibility.Visible;
-            SourcePathTextBox.Visibility = Visibility.Visible;
-            DestinationLabel.Visibility = Visibility.Visible;
-            DestinationPathTextBox.Visibility = Visibility.Visible;
         }
 
         private void Window_Closed(object sender, EventArgs e)

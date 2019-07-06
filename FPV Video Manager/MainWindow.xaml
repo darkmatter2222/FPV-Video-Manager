@@ -30,7 +30,7 @@
                     </ListBox>
                 </materialDesign:PopupBox>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="24">FPV Video manager</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="24">FPV Video Manager</TextBlock>
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>
@@ -49,19 +49,9 @@
                 <ListBox x:Name="DrivesList" Grid.Row="1" SelectionChanged="DrivesList_SelectionChanged"/>
             </Grid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="1" IsEnabled="False"/>
-            <Grid Grid.Column="2" Margin="4,0,0,1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="90*"/>
-                    <RowDefinition Height="90*"/>
-                    <RowDefinition Height="311*"/>
-                </Grid.RowDefinitions>
-                <Label x:Name="SourceLabel" Content="Source" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="16" Height="29" Width="58"/>
-                <Label x:Name="DestinationLabel" Content="Destination" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" FontSize="16" Margin="10,10,0,0" Height="29" Width="91"/>
-                <TextBox x:Name="SourcePathTextBox" HorizontalAlignment="Left" Height="23" Margin="27,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="556"/>
-                <TextBox x:Name="DestinationPathTextBox" HorizontalAlignment="Left" Height="23" Margin="27,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="556" Grid.Row="1"/>
-                <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="545,203,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
-                <Button x:Name="RemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="439,203,0,0" Grid.Row="2" VerticalAlignment="Top" Width="101" Style="{StaticResource MaterialDesignRaisedAccentButton}"/>
-            </Grid>
+            <ContentControl Name="MainConfig" Grid.Column="2">
+
+            </ContentControl>
         </Grid>
     </Grid>
 </Window>

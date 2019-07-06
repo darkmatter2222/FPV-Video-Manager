@@ -68,6 +68,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="InterfaceControls\ConfigItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InterfaceControls\Drive.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,8 +84,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BAL\Initialize.cs" />
-    <Compile Include="DAL\FPVVideoMigratorConfiguration.cs" />
+    <Compile Include="InterfaceControls\ConfigItem.xaml.cs">
+      <DependentUpon>ConfigItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceControls\Drive.xaml.cs">
       <DependentUpon>Drive.xaml</DependentUpon>
     </Compile>
@@ -122,10 +127,6 @@
     <ProjectReference Include="..\Engine\Engine.csproj">
       <Project>{c783d12d-8ec7-4967-9f75-127a2cd7d75c}</Project>
       <Name>Engine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FPV Video Configuration\FPV Video Configuration.csproj">
-      <Project>{0f4d1bb8-3cbb-4702-a742-7609bdfd84e9}</Project>
-      <Name>FPV Video Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

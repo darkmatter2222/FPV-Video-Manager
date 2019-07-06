@@ -18,7 +18,14 @@ namespace Engine
             set { _knownConnectedDrives = value; }
         }
 
-        public event TickHandler DriveChange;
+        private static event TickHandler _DriveChange;
+
+        public TickHandler DriveChange
+        {
+            get { return _DriveChange; }
+            set { _DriveChange = value; }
+        }
+
         public delegate void TickHandler(List<DriveInformation> _LDI, EventArgs e);
 
         public void removeFromKnownConnectedDrive(DriveInformation DI)
@@ -74,6 +81,12 @@ namespace Engine
         public void TerminateEngine()
         {
             EngineRunning = false;
+        }
+
+        public void ReloadAll()
+        {
+            _knownConnectedDrives = new List<DriveInformation>();
+            DriveChange(_knownConnectedDrives, null);
         }
 
         public void TickEngine()
@@ -195,12 +208,43 @@ namespace Engine
                 {
                     CreateBaseConfig();
                 }
-                ConfigFile["Monitoring"] = "True";
+                if (value)
+                {
+                    ConfigFile["Monitoring"] = "True";
+                }
+                else
+                {
+                    ConfigFile["Monitoring"] = "False";
+                }
                 save();
             }
         }
 
-        private void save()
+        public string source
+        {
+            get
+            {
+                return ConfigFile["Source"].ToString();
+            }
+            set
+            {
+                ConfigFile["Source"] = value;
+            }
+        }
+
+        public string destination
+        {
+            get
+            {
+                return ConfigFile["Destination"].ToString();
+            }
+            set
+            {
+                ConfigFile["Destination"] = value;
+            }
+        }
+
+        public void save()
         {
             File.WriteAllText($@"{Name}\FPVVideoManager.json", ConfigFile.ToString());
         }

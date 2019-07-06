@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Engine;
 
 namespace FPV_Video_Manager.InterfaceControls
 {
@@ -20,13 +21,17 @@ namespace FPV_Video_Manager.InterfaceControls
     /// </summary>
     public partial class Drive : UserControl
     {
-        public Drive(string driveName = "", bool monitoring = false)
+        public DriveInformation DI;
+
+        public Drive(DriveInformation _DI)
         {
             InitializeComponent();
 
-            DriveNameTextBlock.Text = driveName;
+            DI = _DI;
 
-            if (monitoring)
+            DriveNameTextBlock.Text = _DI.Name;
+
+            if (_DI.isMonitoring)
                 MonitoringIc.Visibility = Visibility.Visible;
             else
                 MonitoringIc.Visibility = Visibility.Collapsed;
