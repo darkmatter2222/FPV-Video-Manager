@@ -25,12 +25,28 @@ namespace FPV_Video_Manager
     {
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         DriveEngine driveEngine = new DriveEngine();
+        private System.Windows.Forms.NotifyIcon notifyIcon = null;
 
         public MainWindow()
         {
             InitializeComponent();
             driveEngine.DriveChange += DriveEngine_DriveChange;
             driveEngine.InitializeEngine();
+
+            notifyIcon = new System.Windows.Forms.NotifyIcon();
+            notifyIcon.Click += new EventHandler(notifyIcon_Click);
+
+            var bitmap = FPV_Video_Manager.Properties.Resources.icon; // or get it from resource
+            var iconHandle = bitmap.GetHicon();
+
+            notifyIcon.Icon = System.Drawing.Icon.FromHandle(iconHandle);
+        }
+
+        void notifyIcon_Click(object sender, EventArgs e)
+        {
+            this.ShowInTaskbar = true;
+            this.Visibility = Visibility.Visible;
+            notifyIcon.Visible = false;
         }
 
         private void DriveEngine_DriveChange(List<DriveInformation> _LDI, EventArgs e)
@@ -73,6 +89,18 @@ namespace FPV_Video_Manager
         {
             driveEngine.TerminateEngine();
             new GlobalEngineSwitch().AllEnginesRunning = false;
+        }
+
+        private void HeadlessLabel_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Going headless means the app will continute to run and you wont see it. \r\n\r\n"+
+                "To reopen this app, click the icon that will be added to your systen tray. \r\n\r\nProceed with going headless?", "Are you sure", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                this.ShowInTaskbar = false;
+                this.Visibility = Visibility.Collapsed;
+                notifyIcon.Visible = true;
+            }
         }
     }
 }

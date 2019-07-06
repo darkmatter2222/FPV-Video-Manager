@@ -24,6 +24,9 @@
             <DockPanel>
                 <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="True">
                     <ListBox>
+                        <ListBoxItem x:Name="HeadlessLabel" PreviewMouseDown="HeadlessLabel_PreviewMouseDown">
+                            Go Headless
+                        </ListBoxItem>
                         <ListBoxItem x:Name="ExitLabel" PreviewMouseDown="ExitLabel_PreviewMouseDown">
                             Exit
                         </ListBoxItem>
