@@ -1,20 +1,32 @@
 ﻿<Window x:Class="FPV_Video_Manager.MainWindow"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{StaticResource MaterialDesignFont}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Background="{DynamicResource MaterialDesignPaper}"
         xmlns:local="clr-namespace:FPV_Video_Manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid>
-        <materialDesign:ColorZone Mode="PrimaryMid" Padding="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="389*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone x:Name="ColorZone" Mode="PrimaryMid" Padding="16" MouseDown="ColorZone_MouseDown" Height="61" >
             <DockPanel>
-                <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges">
+                <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="True">
                     <ListBox>
-                        <ListBoxItem>
-                            Hello World
+                        <CheckBox Content="Engine Running" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <ListBoxItem x:Name="ExitLabel" PreviewMouseDown="ExitLabel_PreviewMouseDown">
+                            Exit
                         </ListBoxItem>
                     </ListBox>
                 </materialDesign:PopupBox>
@@ -23,5 +35,34 @@
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>
+        <Grid Grid.Row="1" Margin="0,0,0,1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="405*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="343*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Available Drives" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="182" FontSize="16"/>
+                <ListBox x:Name="DrivesList" Grid.Row="1" SelectionChanged="DrivesList_SelectionChanged"/>
+            </Grid>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="1" IsEnabled="False"/>
+            <Grid Grid.Column="2" Margin="4,0,0,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="311*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="SourceLabel" Content="Source" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="16" Height="29" Width="58"/>
+                <Label x:Name="DestinationLabel" Content="Destination" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" FontSize="16" Margin="10,10,0,0" Height="29" Width="91"/>
+                <TextBox x:Name="SourcePathTextBox" HorizontalAlignment="Left" Height="23" Margin="27,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="556"/>
+                <TextBox x:Name="DestinationPathTextBox" HorizontalAlignment="Left" Height="23" Margin="27,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="556" Grid.Row="1"/>
+                <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="545,203,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="RemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="439,203,0,0" Grid.Row="2" VerticalAlignment="Top" Width="101" Style="{StaticResource MaterialDesignRaisedAccentButton}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
