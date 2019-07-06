@@ -44,6 +44,9 @@
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -116,6 +119,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.csproj">
+      <Project>{c783d12d-8ec7-4967-9f75-127a2cd7d75c}</Project>
+      <Name>Engine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FPV Video Configuration\FPV Video Configuration.csproj">
       <Project>{0f4d1bb8-3cbb-4702-a742-7609bdfd84e9}</Project>
       <Name>FPV Video Configuration</Name>

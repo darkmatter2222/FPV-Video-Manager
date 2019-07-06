@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace Engine
 {
    
-    class DriveEngine
+    public class DriveEngine
     {
         #region Drive Lists
         private static List<DriveInformation> _knownConnectedDrives = new List<DriveInformation>();
@@ -17,14 +18,21 @@ namespace Engine
             set { _knownConnectedDrives = value; }
         }
 
+        public event TickHandler DriveChange;
+        public delegate void TickHandler(List<DriveInformation> _LDI, EventArgs e);
+
         public void removeFromKnownConnectedDrive(DriveInformation DI)
         {
-            knownConnectedDrives.Add(DI);
+            knownConnectedDrives.Remove(DI);
+            DriveChange(_knownConnectedDrives, null);
         }
 
         public void addToKnownConnectedDrive(DriveInformation DI)
         {
-            knownConnectedDrives.Remove(DI);
+            DI.LoadFromConfig();
+
+            knownConnectedDrives.Add(DI);
+            DriveChange(_knownConnectedDrives, null);
         }
 
         private static List<DriveInformation> _disconnectingDrives = new List<DriveInformation>();
@@ -41,11 +49,20 @@ namespace Engine
             set { _connectingDrives = value; }
         }
         #endregion
+
+        public static bool EngineRunning = false;
+
         Thread T;
 
 
         public DriveEngine()
         {
+
+        }
+
+        public void InitializeEngine()
+        {
+            EngineRunning = true;
             // start engine
             if (T == null)
             {
@@ -54,9 +71,14 @@ namespace Engine
             }
         }
 
+        public void TerminateEngine()
+        {
+            EngineRunning = false;
+        }
+
         public void TickEngine()
         {
-            while (true)
+            while (EngineRunning)
             {
                 try
                 {
@@ -110,7 +132,7 @@ namespace Engine
                         connectingDrives = new List<DriveInformation>();
                     }
 
-                    if (disconnectingDrives.Count < 0)
+                    if (disconnectingDrives.Count > 0)
                     {
                         var removeTarget = new DriveInformation();
                         foreach (var drive in disconnectingDrives)
@@ -128,7 +150,7 @@ namespace Engine
                     }
 
                     //sleep
-                    Thread.Sleep(1000);
+                    Thread.Sleep(100);
                 }
                 catch
                 {
@@ -138,8 +160,62 @@ namespace Engine
         }
     }
 
-    class DriveInformation
+    public class DriveInformation
     {
         public string Name = "";
+
+        private JObject ConfigFile;
+
+        public void LoadFromConfig()
+        {
+            try
+            {
+                ConfigFile = JObject.Parse(File.ReadAllText($@"{Name}\FPVVideoManager.json"));
+            }
+            catch(Exception e)
+            {
+                ConfigFile = null;
+            }
+        }
+
+        public bool isMonitoring
+        {
+            get
+            {
+                bool Monitoring = false;
+                if (ConfigFile != null && ConfigFile["Monitoring"].ToString().Equals("True"))
+                {
+                    Monitoring = true;
+                }
+                return Monitoring;
+            }
+            set
+            {
+                if (ConfigFile == null)
+                {
+                    CreateBaseConfig();
+                }
+                ConfigFile["Monitoring"] = "True";
+                save();
+            }
+        }
+
+        private void save()
+        {
+            File.WriteAllText($@"{Name}\FPVVideoManager.json", ConfigFile.ToString());
+        }
+
+        public void CreateBaseConfig()
+        {
+            if (ConfigFile == null)
+            {
+                File.Create($@"{Name}\FPVVideoManager.json");
+                JObject JO = JObject.Parse("{\"Version\": \"1\",\"Monitoring\": \"False\",\"Source\":\"\",\"Destination\":\"\",\"DeleteAfterMobe\":\"False\"}");
+                File.WriteAllText($@"{Name}\FPVVideoManager.json", JO.ToString());
+                ConfigFile = JO;
+            }
+        }
+        
+
     }
 }

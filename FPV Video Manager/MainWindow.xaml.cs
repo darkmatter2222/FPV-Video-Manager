@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Threading;
+using Engine;
 
 namespace FPV_Video_Manager
 {
@@ -23,37 +24,27 @@ namespace FPV_Video_Manager
     public partial class MainWindow : Window
     {
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
-        List<DriveData> KnownDrives = new List<DriveData>();
-        bool DriveChangeDetected = false;
+        DriveEngine driveEngine = new DriveEngine();
 
         public MainWindow()
         {
             InitializeComponent();
             BAL.Initialize init = new BAL.Initialize();
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
-            
+            driveEngine.DriveChange += DriveEngine_DriveChange;
+            driveEngine.InitializeEngine();
         }
 
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void DriveEngine_DriveChange(List<DriveInformation> _LDI, EventArgs e)
+        {
+            Dispatcher.Invoke(new Action(() => UpdateDrivesList(_LDI)));
+        }
+
+        public void UpdateDrivesList(List<DriveInformation> _LDI)
         {
             DrivesList.Items.Clear();
 
-            DriveInfo[] allDrives = DriveInfo.GetDrives();
-
-            DriveChangeDetected = false;
-
-            foreach (var drive in allDrives)
-            {
-                if (!ContainsDrive(drive.Name))
-                {
-
-                }
-            }
-
-               // DrivesList.Items.Add(new InterfaceControls.Drive(drive.Name));
+            foreach(var drive in _LDI)
+                DrivesList.Items.Add(new InterfaceControls.Drive(driveName:drive.Name, monitoring:drive.isMonitoring));
         }
 
         private void ColorZone_MouseDown(object sender, MouseButtonEventArgs e)
@@ -95,23 +86,9 @@ namespace FPV_Video_Manager
             DestinationPathTextBox.Visibility = Visibility.Visible;
         }
 
-        public bool ContainsDrive(string driveInQuestion)
+        private void Window_Closed(object sender, EventArgs e)
         {
-            bool containsDrive = false;
-            foreach (var drive in KnownDrives)
-            {
-                if (drive.DriveName.Equals(driveInQuestion))
-                {
-                    containsDrive = true;
-                    break;
-                }
-            }
-            return containsDrive;
-        }
-
-        class DriveData
-        {
-            public string DriveName = "";
+            driveEngine.TerminateEngine();
         }
     }
 }

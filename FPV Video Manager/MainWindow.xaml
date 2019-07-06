@@ -14,7 +14,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FPV_Video_Manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Closed="Window_Closed">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="61*"/>
@@ -24,7 +24,6 @@
             <DockPanel>
                 <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="True">
                     <ListBox>
-                        <CheckBox Content="Engine Running" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         <ListBoxItem x:Name="ExitLabel" PreviewMouseDown="ExitLabel_PreviewMouseDown">
                             Exit
                         </ListBoxItem>

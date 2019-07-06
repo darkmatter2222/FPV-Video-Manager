@@ -20,10 +20,16 @@ namespace FPV_Video_Manager.InterfaceControls
     /// </summary>
     public partial class Drive : UserControl
     {
-        public Drive(string driveName = "")
+        public Drive(string driveName = "", bool monitoring = false)
         {
             InitializeComponent();
+
             DriveNameTextBlock.Text = driveName;
+
+            if (monitoring)
+                MonitoringIc.Visibility = Visibility.Visible;
+            else
+                MonitoringIc.Visibility = Visibility.Collapsed;
         }
     }
 }
