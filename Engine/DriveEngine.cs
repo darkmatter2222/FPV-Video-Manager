@@ -187,7 +187,10 @@ namespace Engine
             offloadFolderName = $@"{driveMountTime.ToString().Replace("/","-").Replace("\\","-").Replace(":","-")}";
             try
             {
-                ConfigFile = JObject.Parse(File.ReadAllText($@"{Name}\FPVVideoManager.json"));
+                if (File.Exists($@"{Name}\FPVVideoManager.json"))
+                    ConfigFile = JObject.Parse(File.ReadAllText($@"{Name}\FPVVideoManager.json"));
+                else
+                    ConfigFile = null;
             }
             catch(Exception e)
             {
