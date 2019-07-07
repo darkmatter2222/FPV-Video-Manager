@@ -40,6 +40,8 @@ namespace FPV_Video_Manager
             var iconHandle = bitmap.GetHicon();
 
             notifyIcon.Icon = System.Drawing.Icon.FromHandle(iconHandle);
+
+            Versionlabel.Content = "v" +  System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
         }
 
         void notifyIcon_Click(object sender, EventArgs e)
@@ -100,6 +102,18 @@ namespace FPV_Video_Manager
                 this.ShowInTaskbar = false;
                 this.Visibility = Visibility.Collapsed;
                 notifyIcon.Visible = true;
+            }
+        }
+
+        private void AboutLabel_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://github.com/darkmatter2222/FPV-Video-Manager");
+            }
+            catch
+            {
+                MessageBox.Show("https://github.com/darkmatter2222/FPV-Video-Manager");
             }
         }
     }

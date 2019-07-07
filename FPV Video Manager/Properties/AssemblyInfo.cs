@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FPV Video Manager")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("https://github.com/darkmatter2222/FPV-Video-Manager/blob/master/README.md")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FPV Video Manager")]

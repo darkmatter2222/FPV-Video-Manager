@@ -27,6 +27,9 @@
                         <ListBoxItem x:Name="HeadlessLabel" PreviewMouseDown="HeadlessLabel_PreviewMouseDown">
                             Go Headless
                         </ListBoxItem>
+                        <ListBoxItem x:Name="AboutLabel" PreviewMouseDown="AboutLabel_PreviewMouseDown">
+                            About
+                        </ListBoxItem>
                         <ListBoxItem x:Name="ExitLabel" PreviewMouseDown="ExitLabel_PreviewMouseDown">
                             Exit
                         </ListBoxItem>
@@ -48,8 +51,9 @@
                     <RowDefinition Height="45*"/>
                     <RowDefinition Height="343*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Available Drives" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="182" FontSize="16"/>
-                <ListBox x:Name="DrivesList" Grid.Row="1" SelectionChanged="DrivesList_SelectionChanged" HorizontalContentAlignment="Stretch"/>
+                <Label Content="Drive / Status" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="182" FontSize="16"/>
+                <ListBox x:Name="DrivesList" Grid.Row="1" SelectionChanged="DrivesList_SelectionChanged" HorizontalContentAlignment="Stretch" Margin="0,0,0.5,22"/>
+                <Label x:Name="Versionlabel" Content="Version" HorizontalAlignment="Left" Grid.Row="1" Height="22" VerticalAlignment="Bottom" Padding="5,0,5,5"/>
             </Grid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="1" IsEnabled="False"/>
             <ContentControl Name="MainConfig" Grid.Column="2">

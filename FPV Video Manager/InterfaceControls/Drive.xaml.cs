@@ -42,6 +42,8 @@ namespace FPV_Video_Manager.InterfaceControls
             }
             else
                 MonitoringIc.Visibility = Visibility.Collapsed;
+
+            StatusLabel.Content = "Doing Nothing";
         }
 
         public void BeginFileManager()
