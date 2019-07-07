@@ -3,10 +3,11 @@ For FPV Pilots who want a quick way to offload video
 
 Enables the pilot to come home, plug in their media, wait for the OK and proceed with life.
 
+![Base App](https://i.imgur.com/OLrJ8o1.gif)
+
 ![Base App](https://i.imgur.com/89zI0F1.png)
 ![Base App](https://i.imgur.com/j75hCvi.png)
 ![Base App](https://i.imgur.com/6IjKX7A.png)
-
 
 <h1>Requirements:</h1>
 
