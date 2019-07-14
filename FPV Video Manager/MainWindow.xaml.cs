@@ -29,6 +29,7 @@ namespace FPV_Video_Manager
 
         public MainWindow()
         {
+            new Reporting.AppStartup().Execute();
             InitializeComponent();
             driveEngine.DriveChange += DriveEngine_DriveChange;
             driveEngine.InitializeEngine();
