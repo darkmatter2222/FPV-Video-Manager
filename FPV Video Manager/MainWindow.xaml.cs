@@ -37,10 +37,7 @@ namespace FPV_Video_Manager
             notifyIcon = new System.Windows.Forms.NotifyIcon();
             notifyIcon.Click += new EventHandler(notifyIcon_Click);
 
-            var bitmap = FPV_Video_Manager.Properties.Resources.icon; // or get it from resource
-            var iconHandle = bitmap.GetHicon();
-
-            notifyIcon.Icon = System.Drawing.Icon.FromHandle(iconHandle);
+            notifyIcon.Icon = (System.Drawing.Icon)FPV_Video_Manager.Properties.Resources.icon1;
 
             Versionlabel.Content = "v" +  System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
         }

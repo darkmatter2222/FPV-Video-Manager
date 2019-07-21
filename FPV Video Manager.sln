@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPV Video Manager", "FPV Video Manager\FPV Video Manager.csproj", "{86DE2963-8A1C-4E45-9730-07F8EB1C1F0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{C783D12D-8EC7-4967-9F75-127A2CD7D75C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Engine\Engine.csproj", "{C783D12D-8EC7-4967-9F75-127A2CD7D75C}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{8FBC2D3F-E8EF-4F7D-8BF1-59265A4D7541}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,8 @@ Global
 		{C783D12D-8EC7-4967-9F75-127A2CD7D75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C783D12D-8EC7-4967-9F75-127A2CD7D75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C783D12D-8EC7-4967-9F75-127A2CD7D75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FBC2D3F-E8EF-4F7D-8BF1-59265A4D7541}.Debug|Any CPU.ActiveCfg = Debug
+		{8FBC2D3F-E8EF-4F7D-8BF1-59265A4D7541}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
