@@ -27,13 +27,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2B19CFD10EC94341A05B39E0FD458E3D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4CB29CA17C8F486CA3EE5982A26963ED"
+        "MsmKey" = "8:_20B15DE1BD994E8994D2AEAFE26B0730"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -118,12 +112,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D03ECB37A8E692C0D02902AD82F7C62F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C2B5EAB133984EF7B900321C5FF6C1F2"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -181,6 +169,12 @@
         "OwnerKey" = "8:_E66881F1B5EF2F64EE31133B0030E02A"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D03ECB37A8E692C0D02902AD82F7C62F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -199,6 +193,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -215,6 +225,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -275,29 +301,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B19CFD10EC94341A05B39E0FD458E3D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_20B15DE1BD994E8994D2AEAFE26B0730"
             {
-            "SourcePath" = "8:..\\FPV Video Manager\\InterfaceControls\\icon.png"
-            "TargetName" = "8:icon.png"
-            "Tag" = "8:"
-            "Folder" = "8:_96291DD5D5E4433AA7298FADAF6E900F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4CB29CA17C8F486CA3EE5982A26963ED"
-            {
-            "SourcePath" = "8:..\\FPV Video Manager\\InterfaceControls\\icon.ico"
+            "SourcePath" = "8:..\\FPV Video Manager\\icon.ico"
             "TargetName" = "8:icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_96291DD5D5E4433AA7298FADAF6E900F"
@@ -681,15 +687,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FPVVideoManager"
-        "ProductCode" = "8:{74CFA82E-4AB9-4887-BB5A-CDD41192AB33}"
-        "PackageCode" = "8:{0A3879CF-53F9-4161-B10C-74522601F49D}"
+        "ProductCode" = "8:{5E7C845F-9B89-49AF-82F0-89F18D021434}"
+        "PackageCode" = "8:{B8FCD2DC-474D-4C74-BA83-F141A476C7EF}"
         "UpgradeCode" = "8:{64BFDDEA-911F-4673-A2B5-45C67B477D0F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:darkmatter2222"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -699,7 +705,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:https://github.com/darkmatter2222/FPV-Video-Manager"
-        "ARPPRODUCTICON" = "8:_4CB29CA17C8F486CA3EE5982A26963ED"
+        "ARPPRODUCTICON" = "8:_20B15DE1BD994E8994D2AEAFE26B0730"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -813,7 +819,7 @@
             "Target" = "8:_C2B5EAB133984EF7B900321C5FF6C1F2"
             "Folder" = "8:_E5AB0217FEB749419675C654480CB871"
             "WorkingFolder" = "8:_96291DD5D5E4433AA7298FADAF6E900F"
-            "Icon" = "8:_4CB29CA17C8F486CA3EE5982A26963ED"
+            "Icon" = "8:_20B15DE1BD994E8994D2AEAFE26B0730"
             "Feature" = "8:"
             }
         }
