@@ -1,0 +1,30 @@
+﻿<Window x:Class="FPV_Video_Manager.UpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{StaticResource MaterialDesignFont}"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FPV_Video_Manager"
+        mc:Ignorable="d"
+        Title="UpdateWindow" Height="301.566" Width="495.616" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" >
+    <Grid>
+        <materialDesign:ColorZone x:Name="ColorZone" Mode="PrimaryMid" Padding="16" Height="61" >
+            <DockPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="24">FPV Video Manager Update Available</TextBlock>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <Button x:Name="UpdateButton" Content="Take Me To Download" Margin="0,0,9.5,9.5" Height="32" HorizontalAlignment="Right" Width="173" VerticalAlignment="Bottom" Click="UpdateButton_Click"/>
+        <Label x:Name="ExitLabel" Content="Not Now" HorizontalAlignment="Left" Margin="246,263,0,0" VerticalAlignment="Top" Background="#00000000" MouseDown="ExitLabel_MouseDown"/>
+        <Label Content="Update Available" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="UpdateTextBlock" Margin="10,96,9.5,46.5" TextWrapping="Wrap"/>
+    </Grid>
+</Window>

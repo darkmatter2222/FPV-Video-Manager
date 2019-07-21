@@ -40,6 +40,9 @@ namespace FPV_Video_Manager
             notifyIcon.Icon = (System.Drawing.Icon)FPV_Video_Manager.Properties.Resources.icon1;
 
             Versionlabel.Content = "v" +  System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
+
+            UpdateWindow UW = new UpdateWindow();
+            UW.ShowDialog();
         }
 
         void notifyIcon_Click(object sender, EventArgs e)
