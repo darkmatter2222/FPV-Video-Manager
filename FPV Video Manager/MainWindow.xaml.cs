@@ -15,6 +15,11 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Threading;
 using Engine;
+using RestSharp;
+using System.Threading;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+
 
 namespace FPV_Video_Manager
 {
@@ -41,8 +46,29 @@ namespace FPV_Video_Manager
 
             Versionlabel.Content = "v" +  System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
 
-            UpdateWindow UW = new UpdateWindow();
-            UW.ShowDialog();
+            Thread t = new Thread(CheckForUpdate);
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+        }
+
+        public void CheckForUpdate()
+        {
+            try
+            {
+                var client = new RestClient("https://api.github.com/repos/darkmatter2222/FPV-Video-Manager/releases");
+                var request = new RestRequest(Method.GET);
+                IRestResponse response = client.Execute(request);
+                JObject jo = JObject.Parse("{\"Root\":" + response.Content + "}");
+                if (!jo["Root"][0]["tag_name"].ToString().Equals(System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString()))
+                {
+                    UpdateWindow UW = new UpdateWindow(jo["Root"][0]["body"].ToString());
+                    UW.ShowDialog();
+                }
+            }
+            catch
+            {
+            }
+
         }
 
         void notifyIcon_Click(object sender, EventArgs e)

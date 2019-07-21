@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace FPV_Video_Manager
 {
     /// <summary>
@@ -19,9 +20,10 @@ namespace FPV_Video_Manager
     /// </summary>
     public partial class UpdateWindow : Window
     {
-        public UpdateWindow()
+        public UpdateWindow(string UpdateText = "")
         {
             InitializeComponent();
+            UpdateTextBlock.Text = UpdateText;
         }
 
         private void ExitLabel_MouseDown(object sender, MouseButtonEventArgs e)
