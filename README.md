@@ -20,6 +20,7 @@ Found here: https://dotnet.microsoft.com/download/dotnet-framework
 * Download Latest Release (.msi) [Here](https://github.com/darkmatter2222/FPV-Video-Manager/releases) 
 * Install MSI
 * Shortcut will be placed on desktop adn made searchable.
+
 ![Base App](https://i.imgur.com/Ztsr2WH.png)
 
 
