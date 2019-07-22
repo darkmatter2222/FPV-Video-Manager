@@ -17,9 +17,10 @@ Found here: https://dotnet.microsoft.com/download/dotnet-framework
 
 <h1>Usage Startup:</h1>
 
-* Download Latest Release [Here](https://github.com/darkmatter2222/FPV-Video-Manager/releases) 
-* Extract zip maintaining all files in a single directory. Feel free to create a shortcut to "FPV Video Manager.exe"
-* Run "FPV Video Manager.exe" (or shortcut)
+* Download Latest Release (.msi) [Here](https://github.com/darkmatter2222/FPV-Video-Manager/releases) 
+* Install MSI
+* Shortcut will be placed on desktop adn made searchable.
+![Base App](https://i.imgur.com/Ztsr2WH.png)
 
 
 <h1>Set Up FPV Drive:</h1>
