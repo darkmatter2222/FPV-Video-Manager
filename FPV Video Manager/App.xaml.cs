@@ -17,6 +17,13 @@ namespace FPV_Video_Manager
         public App()
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
+            if (System.Diagnostics.Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Count() > 1)
+            {
+                MessageBoxResult MBR = MessageBox.Show("FPV File Manager is already running, please use the alreay running instance of FPV File manager. \r\n\r\nCheck your system tray incase it is running headless.", "SH*% Hitting Fan");
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+            } 
+
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
