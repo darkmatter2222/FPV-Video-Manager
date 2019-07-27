@@ -5,7 +5,7 @@ Enables the pilot to come home, plug in their media, wait for the OK and proceed
 
 Product Vide, Install Guide and How To below!
 
-[![IMAGE ALT TEXT HERE](https://i.imgur.com/R65QuE6.png)](https://www.youtube.com/watch?v=tFrPtBdwhvM)
+[![IMAGE ALT TEXT HERE](https://i.imgur.com/g7mKFeF.png)](https://www.youtube.com/watch?v=tFrPtBdwhvM)
 
 ![Base App](https://i.imgur.com/89zI0F1.png)
 ![Base App](https://i.imgur.com/j75hCvi.png)
