@@ -3,7 +3,7 @@ For FPV Pilots who want a quick way to offload video
 
 Enables the pilot to come home, plug in their media, wait for the OK and proceed with life.
 
-Product Vide, Install Guide and How To below!
+Product Video, Install Guide and How To below!
 
 [![IMAGE ALT TEXT HERE](https://i.imgur.com/g7mKFeF.png)](https://www.youtube.com/watch?v=tFrPtBdwhvM)
 
