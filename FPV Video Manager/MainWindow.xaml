@@ -33,6 +33,7 @@
                         <ListBoxItem x:Name="ExitLabel" PreviewMouseDown="ExitLabel_PreviewMouseDown">
                             Exit
                         </ListBoxItem>
+                        <CheckBox x:Name="SpeakStatusCheckBox" Content="Speak Status" />
                     </ListBox>
                 </materialDesign:PopupBox>
                 <StackPanel Orientation="Horizontal">
