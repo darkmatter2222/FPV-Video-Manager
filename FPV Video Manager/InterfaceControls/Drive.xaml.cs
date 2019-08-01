@@ -89,6 +89,35 @@ namespace FPV_Video_Manager.InterfaceControls
             }
         }
 
+        public AudioPlayer.AudioManager.AudioFile NumberToName(int number)
+        {
+            switch (number)
+            {
+                case 1:
+                    return AudioPlayer.AudioManager.AudioFile.OneFR;
+                case 2:
+                    return AudioPlayer.AudioManager.AudioFile.TwoFR;
+                case 3:
+                    return AudioPlayer.AudioManager.AudioFile.ThreeFR;
+                case 4:
+                    return AudioPlayer.AudioManager.AudioFile.FourFR;
+                case 5:
+                    return AudioPlayer.AudioManager.AudioFile.FiveFR;
+                case 6:
+                    return AudioPlayer.AudioManager.AudioFile.SixFR;
+                case 7:
+                    return AudioPlayer.AudioManager.AudioFile.SevenFR;
+                case 8:
+                    return AudioPlayer.AudioManager.AudioFile.EightFR;
+                case 9:
+                    return AudioPlayer.AudioManager.AudioFile.NineFR;
+                case 10:
+                    return AudioPlayer.AudioManager.AudioFile.TenFR;
+                default:
+                    return AudioPlayer.AudioManager.AudioFile.MoreTenFR;
+            }
+        }
+
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
             ThreadRunning = false;

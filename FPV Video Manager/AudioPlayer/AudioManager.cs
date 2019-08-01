@@ -9,7 +9,7 @@ using NAudio.Wave;
 
 namespace FPV_Video_Manager.AudioPlayer
 {
-    class AudioManager
+    public class AudioManager
     {
         public enum AudioFile { OneFR, TwoFR, ThreeFR, FourFR, FiveFR, SixFR, SevenFR, EightFR, NineFR, TenFR, MoreTenFR, ContentDiscovered, FileMoved }
 
