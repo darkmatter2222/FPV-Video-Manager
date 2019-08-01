@@ -192,7 +192,7 @@ namespace Engine
                 else
                     ConfigFile = null;
             }
-            catch(Exception e)
+            catch
             {
                 ConfigFile = null;
             }

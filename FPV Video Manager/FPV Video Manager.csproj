@@ -41,6 +41,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -70,6 +73,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AudioPlayer\AudioManager.cs" />
     <Compile Include="Config\Configuration.cs" />
     <Compile Include="Reporting\AppStartup.cs" />
     <Compile Include="UpdateWindow.xaml.cs">
@@ -147,6 +151,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VoiceFiles\ContentDiscovered.wav" />
+    <EmbeddedResource Include="VoiceFiles\EightFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\FileMoved.wav" />
+    <EmbeddedResource Include="VoiceFiles\FiveFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\FourFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\MoreThanTenFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\NineFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\OneFileRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\SevenFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\SixFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\TenFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\ThreeFilesRemaining.wav" />
+    <EmbeddedResource Include="VoiceFiles\TwoFilesRemaining.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

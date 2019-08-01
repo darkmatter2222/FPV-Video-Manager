@@ -37,7 +37,7 @@ namespace FPV_Video_Manager.Reporting
                 MakeRequest<string>(values);
 
             }
-            catch(Exception e)
+            catch
             {
             }
         }

@@ -35,7 +35,7 @@ namespace FPV_Video_Manager.Config
                     else
                         ConfigFile = null;
                 }
-                catch (Exception e)
+                catch
                 {
                     ConfigFile = null;
                 }
