@@ -30,10 +30,10 @@
                         <ListBoxItem x:Name="AboutLabel" PreviewMouseDown="AboutLabel_PreviewMouseDown">
                             About
                         </ListBoxItem>
+                        <CheckBox x:Name="SpeakStatusCheckBox" Content="Speak Status" />
                         <ListBoxItem x:Name="ExitLabel" PreviewMouseDown="ExitLabel_PreviewMouseDown">
                             Exit
                         </ListBoxItem>
-                        <CheckBox x:Name="SpeakStatusCheckBox" Content="Speak Status" />
                     </ListBox>
                 </materialDesign:PopupBox>
                 <StackPanel Orientation="Horizontal">
