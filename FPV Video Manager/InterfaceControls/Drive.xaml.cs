@@ -57,7 +57,7 @@ namespace FPV_Video_Manager.InterfaceControls
         {
             while (ThreadRunning && new GlobalEngineSwitch().AllEnginesRunning)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(500);
                 try
                 {
                     Dispatcher.Invoke(new Action(() => StatusLabel.Content = "Looking for Content..."));
@@ -67,6 +67,9 @@ namespace FPV_Video_Manager.InterfaceControls
                     if (SourceFiles.Length > 0)
                     {
                         Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"{SourceFiles.Length} Files Found..."));
+
+
+                        new AudioPlayer.AudioManager().PlayFile(NumberToName(SourceFiles.Length));
 
                         Thread.Sleep(100);
 

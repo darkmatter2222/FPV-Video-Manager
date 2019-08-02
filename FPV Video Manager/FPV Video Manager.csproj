@@ -153,19 +153,45 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="VoiceFiles\ContentDiscovered.wav" />
-    <EmbeddedResource Include="VoiceFiles\EightFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\FileMoved.wav" />
-    <EmbeddedResource Include="VoiceFiles\FiveFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\FourFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\MoreThanTenFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\NineFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\OneFileRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\SevenFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\SixFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\TenFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\ThreeFilesRemaining.wav" />
-    <EmbeddedResource Include="VoiceFiles\TwoFilesRemaining.wav" />
+    <Content Include="VoiceFiles\ContentDiscovered.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\EightFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\FileMoved.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\FiveFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\FourFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\MoreThanTenFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\NineFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\OneFileRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\SevenFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\SixFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\TenFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\ThreeFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VoiceFiles\TwoFilesRemaining.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -60,21 +60,22 @@ namespace FPV_Video_Manager.AudioPlayer
                     break;
             }
 
-            object FilePath = $@"VoiceFiles\{fileName}";
+            string FilePath = $@"{Directory.GetCurrentDirectory()}\VoiceFiles\{fileName}";
 
-            new Thread(PlayFile).Start(FilePath);
+            //new Thread(PlayFile).Start(FilePath);
+            PlayFile(FilePath);
         }
-
-        private static void PlayFile(object Filepath)
+        private static void PlayFile(string Filepath)
         {
-            using (var ms = File.OpenRead(Filepath.ToString()))
-            using (var rdr = new Mp3FileReader(ms))
+            using (var ms = File.OpenRead(Filepath))
+            using (var rdr = new WaveFileReader(ms))
             using (var wavStream = WaveFormatConversionStream.CreatePcmStream(rdr))
             using (var baStream = new BlockAlignReductionStream(wavStream))
             using (var waveOut = new WaveOut(WaveCallbackInfo.FunctionCallback()))
             {
                 waveOut.Init(baStream);
                 waveOut.Play();
+                
                 while (waveOut.PlaybackState == PlaybackState.Playing)
                 {
                     Thread.Sleep(100);
