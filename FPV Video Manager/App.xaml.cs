@@ -18,12 +18,25 @@ namespace FPV_Video_Manager
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
-            if (System.Diagnostics.Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Count() > 1)
+            try
             {
-                MessageBoxResult MBR = MessageBox.Show("FPV File Manager is already running, please use the alreay running instance of FPV File manager. \r\n\r\nCheck your system tray incase it is running headless.", "SH*% Hitting Fan");
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
-            } 
+                if (System.Diagnostics.Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Count() > 1)
+                {
+                    MessageBoxResult MBR = MessageBox.Show("FPV File Manager is already running, please use the alreay running instance of FPV File manager. \r\n\r\nCheck your system tray incase it is running headless.", "SH*% Hitting Fan");
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                }
+            }
+            catch
+            {
+            }
 
+            try
+            {
+                new Config.Configuration().LoadFromConfig();
+            }
+            catch
+            {
+            }
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
