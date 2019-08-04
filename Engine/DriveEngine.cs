@@ -267,4 +267,12 @@ namespace Engine
             }
         }
     }
+    public class DriveConfig
+    {
+        public string Version = "1";
+        public string Monitoring = "False";
+        public string Source = "";
+        public string Destination = "";
+        public string DeleteAfterMobe = "False";
+    }
 }
