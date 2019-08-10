@@ -21,10 +21,10 @@
         </TextBlock>
         <StackPanel Orientation="Horizontal"
                     Margin="0,44,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114">
-            <Button x:Name="AcceptButton" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
-                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="Yes" Margin="0,0,0,-3" />
-            <Button x:Name="CxlButton" IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
-                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="No" >
+            <Button x:Name="YesButton" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="Yes" Margin="0,0,0,-3" PreviewMouseDown="YesButton_PreviewMouseDown" />
+            <Button x:Name="NoButton" IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="No" PreviewMouseDown="NoButton_PreviewMouseDown" >
                             </Button>
         </StackPanel>
     </Grid>

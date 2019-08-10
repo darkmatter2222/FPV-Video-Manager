@@ -144,7 +144,8 @@ namespace FPV_Video_Manager.InterfaceControls
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
-            Globals.MWV2.MainListingListBox.Items.Remove(ParrentLBI);
+            if(view.IsAccepted)
+                Globals.MWV2.MainListingListBox.Items.Remove(ParrentLBI);
         }
     }
 }

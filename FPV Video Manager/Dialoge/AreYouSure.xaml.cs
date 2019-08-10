@@ -20,9 +20,20 @@ namespace FPV_Video_Manager.Dialoge
     /// </summary>
     public partial class AreYouSure : UserControl
     {
+        public bool IsAccepted = false;
         public AreYouSure()
         {
             InitializeComponent();
+        }
+
+        private void YesButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            IsAccepted = true;
+        }
+
+        private void NoButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            IsAccepted = false;
         }
     }
 }
