@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="FPV_Video_Manager.Dialoge.RecordConfiguration"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{StaticResource MaterialDesignFont}"
+                          xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FPV_Video_Manager.Dialoge"
+             mc:Ignorable="d" 
+             Height="193.364" Width="485.803">
+    <Grid Margin="16">
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,-0.5" HorizontalAlignment="Right" Width="79" Height="30" VerticalAlignment="Bottom">
+            <Button IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,-3"/>
+        </StackPanel>
+        <CheckBox x:Name="AudiableCheckBox" Content="Audable Notifications" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="AutoCompressionCheckBox" Content="Auto File Compression" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>

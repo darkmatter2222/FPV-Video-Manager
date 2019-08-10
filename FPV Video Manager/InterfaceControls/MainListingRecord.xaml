@@ -25,11 +25,12 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <TextBox TextWrapping="Wrap" Name="SourceTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="5,0,16,0"/>
-        <materialDesign:PackIcon Kind="EllipsisVertical" Grid.Column="0" Height="40" HorizontalAlignment="Right" Width="16" Background="#00000000" Name="SourceElip" PreviewMouseDown="SourceElip_PreviewMouseDown"/>
+        <materialDesign:PackIcon Kind="EllipsisVertical" Grid.Column="0" Height="Auto" HorizontalAlignment="Right" Width="16" Background="#00000000" Name="SourceElip" PreviewMouseDown="SourceElip_PreviewMouseDown" VerticalAlignment="Stretch"/>
         <TextBox TextWrapping="Wrap" x:Name="DestTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="5,0,16,0"/>
-        <materialDesign:PackIcon x:Name="DestElip" Kind="EllipsisVertical" Grid.Column="1" Height="40" HorizontalAlignment="Right" Width="16" Background="#00000000" PreviewMouseDown="DestElip_PreviewMouseDown" />
+        <materialDesign:PackIcon x:Name="DestElip" Kind="EllipsisVertical" Grid.Column="1" Height="Auto" HorizontalAlignment="Right" Width="16" Background="#00000000" PreviewMouseDown="DestElip_PreviewMouseDown" VerticalAlignment="Stretch" />
 
         <TextBox Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="2" Margin="0,0,0.5,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="5,0,16,0"/>
-        <TextBox Text="..." BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <materialDesign:PackIcon x:Name="SettingsButton" Kind="MixerSettings" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23"  Width="25" Background="#00000000" PreviewMouseDown="SettingsButton_PreviewMouseDown" />
     </Grid>
 </UserControl>

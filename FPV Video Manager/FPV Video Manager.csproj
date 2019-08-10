@@ -93,6 +93,9 @@
     <Compile Include="Dialoge\NewTarget.xaml.cs">
       <DependentUpon>NewTarget.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialoge\RecordConfiguration.xaml.cs">
+      <DependentUpon>RecordConfiguration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceControls\MainListingHeader.xaml.cs">
       <DependentUpon>MainListingHeader.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,10 @@
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Dialoge\NewTarget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialoge\RecordConfiguration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
