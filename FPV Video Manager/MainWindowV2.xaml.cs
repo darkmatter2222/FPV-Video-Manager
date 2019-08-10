@@ -29,6 +29,16 @@ namespace FPV_Video_Manager
             MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingHeader(), IsHitTestVisible = false });
             MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingRecord() });
             MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingRecord() });
+            MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingRecord() });
+            MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingRecord() });
+            MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingRecord() });
+
+        }
+
+        private void MainListingListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (MainListingListBox.SelectedIndex != -1)
+                MainListingListBox.SelectedIndex = -1;
         }
     }
 }

@@ -162,9 +162,9 @@
         <CheckBox BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" Padding="4,2,0,0" VerticalAlignment="Bottom" Height="40" Style="{DynamicResource CheckBoxStyle1}"/>
 
         <Label BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#00000000" />
-        <CheckBox BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" Padding="4,2,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="167" Height="40" Style="{DynamicResource CheckBoxStyle1}"/>
+        <CheckBox BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" Padding="4,2,0,0" VerticalAlignment="Bottom" Height="40" Style="{DynamicResource CheckBoxStyle1}"/>
 
-        <TextBox Text="Current State" BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="4" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox Text="Action" BorderThickness="1,0,1,0" BorderBrush="Black" Grid.Column="5" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox Text="" BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="4" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        <TextBox Text="..." BorderThickness="1,0,1,0" BorderBrush="Black" Grid.Column="5" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>
