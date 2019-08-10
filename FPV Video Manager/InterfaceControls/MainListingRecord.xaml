@@ -24,9 +24,9 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <TextBox TextWrapping="Wrap" Name="SourceTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="16,0,16,0"/>
+        <TextBox TextWrapping="Wrap" Name="SourceTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="#FF666666" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="16,0,16,0"/>
         <materialDesign:PackIcon Kind="EllipsisVertical" Grid.Column="0" Height="Auto" HorizontalAlignment="Right" Width="16" Background="#00000000" Name="SourceElip" PreviewMouseDown="SourceElip_PreviewMouseDown" VerticalAlignment="Stretch"/>
-        <TextBox TextWrapping="Wrap" x:Name="DestTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="16,0,16,0"/>
+        <TextBox TextWrapping="Wrap" x:Name="DestTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="#FF666666" Grid.Column="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="16,0,16,0"/>
         <materialDesign:PackIcon x:Name="DestElip" Kind="EllipsisVertical" Grid.Column="1" Height="Auto" HorizontalAlignment="Right" Width="16" Background="#00000000" PreviewMouseDown="DestElip_PreviewMouseDown" VerticalAlignment="Stretch" />
 
         <TextBox Name="StatusTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="2" Margin="0,0,0.5,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="16,0,16,0"/>
