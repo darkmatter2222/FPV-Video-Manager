@@ -17,9 +17,13 @@
     <Grid Margin="16">
 
         <StackPanel Orientation="Horizontal"
-                    Margin="0,44,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="79">
-            <Button IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
+                    Margin="0,44,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167">
+            <Button x:Name="AcceptButton" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,-3"/>
+            <Button x:Name="CxlButton" IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" PreviewMouseDown="CxlButton_PreviewMouseDown">
+                CANCEL
+            </Button>
         </StackPanel>
         <TextBox x:Name="TargetTextBox" Height="23" Margin="10,10,36,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <materialDesign:PackIcon x:Name="FolderAddButton" Kind="FolderMultipleOutline" Margin="423,10,0,0" PreviewMouseDown="FolderAddButton_PreviewMouseDown" Background="#00000000" Height="21" Width="21" />

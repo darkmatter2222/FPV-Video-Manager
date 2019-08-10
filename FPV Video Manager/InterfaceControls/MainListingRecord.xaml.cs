@@ -38,10 +38,13 @@ namespace FPV_Video_Manager.InterfaceControls
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
-            if (!SourceTextBox.Text.Equals(view.TargetTextBox.Text))
+            if (!view.cxled)
             {
-                elementChanged = true;
-                SourceTextBox.Text = view.TargetTextBox.Text;
+                if (!SourceTextBox.Text.Equals(view.TargetTextBox.Text))
+                {
+                    elementChanged = true;
+                    SourceTextBox.Text = view.TargetTextBox.Text;
+                }
             }
 
             StatusUpdate();
@@ -53,16 +56,19 @@ namespace FPV_Video_Manager.InterfaceControls
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
-            if (!DestTextBox.Text.Equals(view.TargetTextBox.Text))
+            if (!view.cxled)
             {
-                elementChanged = true;
-                DestTextBox.Text = view.TargetTextBox.Text;
+                if (!DestTextBox.Text.Equals(view.TargetTextBox.Text))
+                {
+                    elementChanged = true;
+                    DestTextBox.Text = view.TargetTextBox.Text;
+                }
             }
 
             StatusUpdate();
         }
 
-        private async void SettingsButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private async void RecordSettingsButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             var view = new Dialoge.RecordConfiguration(audiableNotification, autoCompression);
 
@@ -101,8 +107,14 @@ namespace FPV_Video_Manager.InterfaceControls
             if (!RecordComplete)
             {
                 StatusTextBox.Text = "Pending Record Completion...";
+                RecordSaveButton.Visibility = Visibility.Collapsed;
                 return;
             }
+
+            if (elementChanged)
+                RecordSaveButton.Visibility = Visibility.Visible;
+            else
+                RecordSaveButton.Visibility = Visibility.Collapsed;
 
             if (elementChanged)
             {
@@ -114,6 +126,12 @@ namespace FPV_Video_Manager.InterfaceControls
             return;
 
             // perform record Saved Check
+        }
+
+        private void RecordSaveButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            elementChanged = false;
+            StatusUpdate();
         }
     }
 }

@@ -30,7 +30,16 @@
         <materialDesign:PackIcon x:Name="DestElip" Kind="EllipsisVertical" Grid.Column="1" Height="Auto" HorizontalAlignment="Right" Width="16" Background="#00000000" PreviewMouseDown="DestElip_PreviewMouseDown" VerticalAlignment="Stretch" />
 
         <TextBox Name="StatusTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="2" Margin="0,0,0.5,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="16,0,16,0"/>
-        <TextBox Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <materialDesign:PackIcon x:Name="SettingsButton" Kind="MixerSettings" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23"  Width="25" Background="#00000000" PreviewMouseDown="SettingsButton_PreviewMouseDown" />
+        <TextBox Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        <Grid Grid.Column="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <materialDesign:PackIcon x:Name="RecordSettingsButton" Kind="MixerSettings" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23"  Width="23" Background="#00000000" PreviewMouseDown="RecordSettingsButton_PreviewMouseDown" Grid.Column="1" />
+            <materialDesign:PackIcon Name="RecordSaveButton" Kind="ContentSave" Grid.Column="2"  Height="Auto" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewMouseDown="RecordSaveButton_PreviewMouseDown" Background="#00000000"/>
+        </Grid>
     </Grid>
 </UserControl>

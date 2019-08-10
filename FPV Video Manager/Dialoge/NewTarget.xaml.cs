@@ -21,6 +21,7 @@ namespace FPV_Video_Manager.Dialoge
     /// </summary>
     public partial class NewTarget : UserControl
     {
+        public bool cxled = false;
         public NewTarget(string _target)
         {
             InitializeComponent();
@@ -50,6 +51,11 @@ namespace FPV_Video_Manager.Dialoge
                 TargetTextBox.Text = folder;
                 // Do something with selected folder string
             }
+        }
+
+        private void CxlButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            cxled = true;
         }
     }
 }
