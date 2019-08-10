@@ -14,6 +14,9 @@
         xmlns:local="clr-namespace:FPV_Video_Manager"
         mc:Ignorable="d"
         Title="MainWindowV2" Height="500" Width="1300">
+    <Window.Resources>
+
+    </Window.Resources>
 
     <Grid>
         <Menu IsMainMenu="True" Height="48" VerticalAlignment="Top" BorderThickness="0,0,0,1" BorderBrush="Black">
@@ -52,72 +55,6 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <ScrollViewer Margin="0,48,0,-0.5">
-            <StackPanel Height="430">
-                <DataGrid Margin="0 8 0 0" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"
-                          materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Code}"
-                                        Header="Source"
-                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
 
-                        <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
-                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Name}"
-                                                               Header="Destination"
-                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" 
-                                                               >
-                            <DataGridTextColumn.ElementStyle>
-                                <Style>
-                                    <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                    <Setter Property="TextBlock.MaxWidth" Value="200"/>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </materialDesign:MaterialDataGridTextColumn>
-                            <!-- set a max length to get an indicator in the editor -->
-                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Description}"
-                                                               Header="Description"
-                                                               MaxLength="255" 
-                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"  />
-                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Numeric}"
-                                                        Header="Target Format"
-                                                        Width="120"
-                                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                            <DataGridTextColumn.HeaderStyle>
-                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                                    <Setter Property="HorizontalAlignment" Value="Right" />
-                                    <Setter Property="ContentTemplate">
-                                        <Setter.Value>
-                                            <DataTemplate>
-                                                <TextBlock TextWrapping="Wrap" Text="{Binding}" TextAlignment="Right"/>
-                                            </DataTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </DataGridTextColumn.HeaderStyle>
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="HorizontalAlignment" Value="Right" />
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </materialDesign:MaterialDataGridTextColumn>
-
-                        <!-- use custom combo box column to get better combos. Use ItemsSourceBinding as your binding template to be applied to each combo -->
-                        <DataGridCheckBoxColumn Binding="{Binding IsCompress}" Header="Compress to Zip"
-                                            ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
-                                            EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
-                        </DataGridCheckBoxColumn>
-
-                        <DataGridCheckBoxColumn Binding="{Binding IsAudiable}" Header="Audiable Notification"
-                                            ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
-                                            EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
-                        </DataGridCheckBoxColumn>
-                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Description}"
-                                                               Header="Status"
-                                                               MaxLength="255" 
-                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"  />
-                    </DataGrid.Columns>
-                </DataGrid>
-            </StackPanel>
-        </ScrollViewer>
     </Grid>
 </Window>
