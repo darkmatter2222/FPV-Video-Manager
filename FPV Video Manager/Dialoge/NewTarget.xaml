@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="FPV_Video_Manager.Dialoge.NewTarget"
+             xmlns:domain1="clr-namespace:FPV_Video_Manager.InterfaceControls"
                      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -19,13 +20,14 @@
         <StackPanel Orientation="Horizontal"
                     Margin="0,44,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167">
             <Button x:Name="AcceptButton" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
-                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,-3"/>
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,-3" PreviewMouseDown="AcceptButton_PreviewMouseDown"/>
             <Button x:Name="CxlButton" IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{x:Static wpf:DialogHost.CloseDialogCommand}" PreviewMouseDown="CxlButton_PreviewMouseDown">
                 CANCEL
             </Button>
         </StackPanel>
-        <TextBox x:Name="TargetTextBox" Height="23" Margin="10,10,36,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TargetTextBox" Height="23" Margin="10,10,36,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TargetTextBox_TextChanged"/>
         <materialDesign:PackIcon x:Name="FolderAddButton" Kind="FolderMultipleOutline" Margin="423,10,0,0" PreviewMouseDown="FolderAddButton_PreviewMouseDown" Background="#00000000" Height="21" Width="21" />
+        <TextBlock x:Name="ValidDirectoryTextBlock" Style="{StaticResource MaterialDesignBody1TextBlock}" Margin="10,38,164,26" Foreground="#DDFF0000" Text="Please Enter A Valid Directory" Visibility="Collapsed"/>
     </Grid>
 </UserControl>

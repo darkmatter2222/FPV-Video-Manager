@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System.ComponentModel;
+using System.IO;
 
 namespace FPV_Video_Manager.Dialoge
 {
@@ -26,6 +28,7 @@ namespace FPV_Video_Manager.Dialoge
         {
             InitializeComponent();
             TargetTextBox.Text = _target;
+            TargetTextBox_TextChanged(null,null);
         }
 
         private void FolderAddButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -56,6 +59,29 @@ namespace FPV_Video_Manager.Dialoge
         private void CxlButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             cxled = true;
+        }
+
+        private void TargetTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // perform directory validation
+            bool validDirectory = Directory.Exists(TargetTextBox.Text);
+
+            if (validDirectory)
+            {
+                ValidDirectoryTextBlock.Visibility = Visibility.Collapsed;
+                AcceptButton.IsEnabled = true;
+            }
+            else
+            {
+                ValidDirectoryTextBlock.Visibility = Visibility.Visible;
+                AcceptButton.IsEnabled = false;
+            }
+        }
+
+        private void AcceptButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!TargetTextBox.Text.Substring(TargetTextBox.Text.Length - 1, 1).Equals(@"\"))
+                TargetTextBox.Text += @"\";
         }
     }
 }
