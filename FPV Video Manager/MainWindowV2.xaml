@@ -33,24 +33,9 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_Edit">
-                <MenuItem Header="_New">
+                <MenuItem Header="_New" Name="MenuItemEditNew" Click="MenuItemEditNew_Click">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Add" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="_Cut" Command="Cut">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="ContentCut" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="_Copy" Command="Copy">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="ContentCopy" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="_Paste" Command="Paste">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="ContentPaste" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
