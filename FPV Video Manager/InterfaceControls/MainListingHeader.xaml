@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="FPV_Video_Manager.InterfaceControls.MainListingHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FPV_Video_Manager.InterfaceControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="1000" MinHeight="40">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Souce" BorderThickness="1,0,0,1" BorderBrush="Black" Grid.Column="0" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Destination" BorderThickness="1,0,0,1" BorderBrush="Black" Grid.Column="1" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Auto Compress" BorderThickness="1,0,0,1" BorderBrush="Black" Grid.Column="2" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Audiable notification" BorderThickness="1,0,0,1" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Current State" BorderThickness="1,0,0,1" BorderBrush="Black" Grid.Column="4" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Action" BorderThickness="1,0,1,1" BorderBrush="Black" Grid.Column="5" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+    </Grid>
+</UserControl>

@@ -75,6 +75,12 @@
     </ApplicationDefinition>
     <Compile Include="AudioPlayer\AudioManager.cs" />
     <Compile Include="Config\Configuration.cs" />
+    <Compile Include="InterfaceControls\MainListingHeader.xaml.cs">
+      <DependentUpon>MainListingHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceControls\MainListingRecord.xaml.cs">
+      <DependentUpon>MainListingRecord.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindowV2.xaml.cs">
       <DependentUpon>MainWindowV2.xaml</DependentUpon>
     </Compile>
@@ -87,6 +93,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InterfaceControls\Drive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InterfaceControls\MainListingHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InterfaceControls\MainListingRecord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
