@@ -20,9 +20,9 @@
             Are you sure you want to remove this automation?
         </TextBlock>
         <StackPanel Orientation="Horizontal"
-                    Margin="0,44,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114">
+                    Margin="0,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Right">
             <Button x:Name="YesButton" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
-                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="Yes" Margin="0,0,0,-3" PreviewMouseDown="YesButton_PreviewMouseDown" />
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="Yes" Margin="0,0,0,0" PreviewMouseDown="YesButton_PreviewMouseDown" />
             <Button x:Name="NoButton" IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="No" PreviewMouseDown="NoButton_PreviewMouseDown" >
                             </Button>

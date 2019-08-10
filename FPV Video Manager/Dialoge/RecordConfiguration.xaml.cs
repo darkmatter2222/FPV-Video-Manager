@@ -20,11 +20,12 @@ namespace FPV_Video_Manager.Dialoge
     /// </summary>
     public partial class RecordConfiguration : UserControl
     {
-        public RecordConfiguration(bool _audiableNotification, bool _autoCompression)
+        public RecordConfiguration(bool _audiableNotification, bool _autoCompression, string _sourceID)
         {
             InitializeComponent();
             AudiableCheckBox.IsChecked = _audiableNotification;
             AutoCompressionCheckBox.IsChecked = _autoCompression;
+            SourceIDTextBox.Text = _sourceID;
         }
     }
 }

@@ -18,9 +18,9 @@
     <Grid Margin="16">
 
         <StackPanel Orientation="Horizontal"
-                    Margin="0,44,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167">
+                    Margin="0,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" >
             <Button x:Name="AcceptButton" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
-                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,-3" PreviewMouseDown="AcceptButton_PreviewMouseDown"/>
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,0" PreviewMouseDown="AcceptButton_PreviewMouseDown"/>
             <Button x:Name="CxlButton" IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{x:Static wpf:DialogHost.CloseDialogCommand}" PreviewMouseDown="CxlButton_PreviewMouseDown">
                 CANCEL

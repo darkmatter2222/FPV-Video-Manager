@@ -27,6 +27,7 @@ namespace FPV_Video_Manager.InterfaceControls
         public ListBoxItem ParrentLBI = null;
         public bool audiableNotification = false;
         public bool autoCompression = false;
+        public string sourceID = "Pending Save...";
 
         public MainListingRecord()
         {
@@ -72,7 +73,7 @@ namespace FPV_Video_Manager.InterfaceControls
 
         private async void RecordSettingsButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var view = new Dialoge.RecordConfiguration(audiableNotification, autoCompression);
+            var view = new Dialoge.RecordConfiguration(audiableNotification, autoCompression, sourceID);
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 

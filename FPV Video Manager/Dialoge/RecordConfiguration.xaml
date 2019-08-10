@@ -17,12 +17,12 @@
              Height="138.734" Width="353.858">
     <Grid Margin="16">
         <StackPanel Orientation="Horizontal"
-                    Margin="0,0,0,-0.5" HorizontalAlignment="Right" Width="79" Height="30" VerticalAlignment="Bottom">
+                    Margin="0,0,0,-0.5" HorizontalAlignment="Right"  VerticalAlignment="Bottom">
             <Button IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
-                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,-3"/>
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,1" VerticalAlignment="Bottom"/>
         </StackPanel>
         <CheckBox x:Name="AudiableCheckBox" Content="Audable Notifications" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="AutoCompressionCheckBox" Content="Auto File Compression" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="SourceIDTextBox" Text="Pending Save..." materialDesign:HintAssist.Hint="Source ID" Height="42" Margin="10,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  IsReadOnly="True"/>
+        <TextBox x:Name="SourceIDTextBox" Text="" materialDesign:HintAssist.Hint="Source ID" Height="42" Margin="10,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  IsReadOnly="True"/>
     </Grid>
 </UserControl>
