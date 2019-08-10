@@ -21,6 +21,7 @@
             <Button IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Content="ACCEPT" Margin="0,0,0,-3"/>
         </StackPanel>
-        <TextBox x:Name="TargetTextBox" Height="23" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TargetTextBox" Height="23" Margin="10,10,36,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <materialDesign:PackIcon x:Name="FolderAddButton" Kind="FolderMultipleOutline" Margin="423,10,0,0" PreviewMouseDown="FolderAddButton_PreviewMouseDown" Background="#00000000" Height="21" Width="21" />
     </Grid>
 </UserControl>

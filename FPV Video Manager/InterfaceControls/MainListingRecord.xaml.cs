@@ -37,6 +37,17 @@ namespace FPV_Video_Manager.InterfaceControls
             SourceTextBox.Text = view.TargetTextBox.Text;
         }
 
+        private async void DestElip_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //let's set up a little MVVM, cos that's what the cool kids are doing:
+            var view = new Dialoge.NewTarget(DestTextBox.Text);
+
+            //show the dialog
+            var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
+
+            DestTextBox.Text = view.TargetTextBox.Text;
+        }
+
         private void ClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
             Console.WriteLine("You can intercept the closing event, and cancel here.");

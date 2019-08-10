@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace FPV_Video_Manager.Dialoge
 {
@@ -24,6 +25,31 @@ namespace FPV_Video_Manager.Dialoge
         {
             InitializeComponent();
             TargetTextBox.Text = _target;
+        }
+
+        private void FolderAddButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var dlg = new CommonOpenFileDialog();
+            dlg.Title = "Select Root Directory";
+            dlg.IsFolderPicker = true;
+            //dlg.InitialDirectory = currentDirectory;
+
+            dlg.AddToMostRecentlyUsedList = false;
+            dlg.AllowNonFileSystemItems = false;
+            //dlg.DefaultDirectory = currentDirectory;
+            dlg.EnsureFileExists = true;
+            dlg.EnsurePathExists = true;
+            dlg.EnsureReadOnly = false;
+            dlg.EnsureValidNames = true;
+            dlg.Multiselect = false;
+            dlg.ShowPlacesList = true;
+
+            if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                var folder = dlg.FileName;
+                TargetTextBox.Text = folder;
+                // Do something with selected folder string
+            }
         }
     }
 }
