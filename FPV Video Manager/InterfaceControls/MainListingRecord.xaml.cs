@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
 
 namespace FPV_Video_Manager.InterfaceControls
 {
@@ -23,6 +24,22 @@ namespace FPV_Video_Manager.InterfaceControls
         public MainListingRecord()
         {
             InitializeComponent();
+        }
+
+        private async void SourceElip_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //let's set up a little MVVM, cos that's what the cool kids are doing:
+            var view = new Dialoge.NewTarget(SourceTextBox.Text);
+
+            //show the dialog
+            var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
+
+            SourceTextBox.Text = view.TargetTextBox.Text;
+        }
+
+        private void ClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
+        {
+            Console.WriteLine("You can intercept the closing event, and cancel here.");
         }
     }
 }

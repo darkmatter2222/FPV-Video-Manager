@@ -24,12 +24,13 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Text="" BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,16,0" IsReadOnly="True"/>
-        <materialDesign:PackIcon Kind="EllipsisVertical" Grid.Column="0" Height="40" HorizontalAlignment="Right" Width="16" Background="#00000000" />
-        <TextBox Text="" BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="1" Margin="0,0,16,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        <TextBox Name="SourceTextBox" Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="5,0,16,0"/>
+        <materialDesign:PackIcon Kind="EllipsisVertical" Grid.Column="0" Height="40" HorizontalAlignment="Right" Width="16" Background="#00000000" Name="SourceElip" PreviewMouseDown="SourceElip_PreviewMouseDown"/>
+        <TextBox Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="5,0,16,0"/>
         <materialDesign:PackIcon Kind="EllipsisVertical" Grid.Column="1" Height="40" HorizontalAlignment="Right" Width="16" Background="#00000000" />
 
-        <TextBox Text="" BorderThickness="1,0,0,0" BorderBrush="Black" Grid.Column="2" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
-        <TextBox Text="..." BorderThickness="1,0,1,0" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox Text="" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="2" Margin="0,0,0.5,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Padding="5,0,16,0"/>
+        <TextBox Text="..." BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <materialDesign:PackIcon Kind="EllipsisVertical" Grid.Column="2" Height="40" HorizontalAlignment="Right" Width="16" Background="#00000000" />
     </Grid>
 </UserControl>

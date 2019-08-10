@@ -17,36 +17,37 @@
     <Window.Resources>
 
     </Window.Resources>
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <Grid>
+            <Menu IsMainMenu="True" Height="48" VerticalAlignment="Top" BorderThickness="0,0,0,0" BorderBrush="Black">
+                <MenuItem Header="_File">
+                    <MenuItem Header="Save">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="ContentSave" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Exit" InputGestureText="Ctrl+E">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="ExitToApp" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_New" Name="MenuItemEditNew" Click="MenuItemEditNew_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Add" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <ListBox x:Name="MainListingListBox" Margin="0,48,0,0.5" HorizontalContentAlignment="Stretch" SelectionChanged="MainListingListBox_SelectionChanged">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Padding" Value="0,0"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
 
-    <Grid>
-        <Menu IsMainMenu="True" Height="48" VerticalAlignment="Top" BorderThickness="0,0,0,0" BorderBrush="Black">
-            <MenuItem Header="_File">
-                <MenuItem Header="Save">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="ContentSave" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Exit" InputGestureText="Ctrl+E">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="ExitToApp" />
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem Header="_New" Name="MenuItemEditNew" Click="MenuItemEditNew_Click">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="Add" />
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-        </Menu>
-        <ListBox x:Name="MainListingListBox" Margin="0,48,0,0.5" HorizontalContentAlignment="Stretch" SelectionChanged="MainListingListBox_SelectionChanged">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="{x:Type ListBoxItem}">
-                    <Setter Property="Padding" Value="0,0"/>
-                </Style>
-            </ListBox.ItemContainerStyle>
-        </ListBox>
-
-    </Grid>
+        </Grid>
+    </materialDesign:DialogHost>
 </Window>

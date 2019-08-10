@@ -75,6 +75,9 @@
     </ApplicationDefinition>
     <Compile Include="AudioPlayer\AudioManager.cs" />
     <Compile Include="Config\Configuration.cs" />
+    <Compile Include="Dialoge\NewTarget.xaml.cs">
+      <DependentUpon>NewTarget.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceControls\MainListingHeader.xaml.cs">
       <DependentUpon>MainListingHeader.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
     <Compile Include="UpdateWindow.xaml.cs">
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Dialoge\NewTarget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InterfaceControls\ConfigItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
