@@ -58,7 +58,7 @@
         <ListBox x:Name="MainListingListBox" Margin="0,48,0,0.5" HorizontalContentAlignment="Stretch">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ListBoxItem}">
-                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="Padding" Value="0,0"/>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>

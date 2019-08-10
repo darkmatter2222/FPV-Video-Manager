@@ -27,8 +27,8 @@ namespace FPV_Video_Manager
         {
             InitializeComponent();
             MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingHeader(), IsHitTestVisible = false });
-            MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingHeader() });
-            MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingHeader() });
+            MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingRecord() });
+            MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingRecord() });
         }
     }
 }
