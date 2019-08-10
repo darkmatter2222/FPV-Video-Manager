@@ -138,8 +138,12 @@ namespace FPV_Video_Manager.InterfaceControls
             StatusUpdate();
         }
 
-        private void RecordTrashButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private async void RecordTrashButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            var view = new Dialoge.AreYouSure();
+
+            var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
+
             Globals.MWV2.MainListingListBox.Items.Remove(ParrentLBI);
         }
     }
