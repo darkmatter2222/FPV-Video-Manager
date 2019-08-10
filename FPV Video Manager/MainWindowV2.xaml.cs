@@ -71,16 +71,16 @@ namespace FPV_Video_Manager
                 new SelectableViewModel
                 {
                     Code = 'M',
-                    Name = "Material Design",
+                    Name = "Material Design fasfas dfasdfasdfasd fasdfasdfasdf asdfasdfasdf asdfasdfasdfasdf asdf asdfasdfa sdf asdf",
                     Description = "Material Design in XAML Toolkit",
-                    Compress = "False"
+                    IsCompress = false
                 },
                 new SelectableViewModel
                 {
                     Code = 'D',
-                    Name = "Dragablz",
+                    Name = @"C:\Users\..\source\repos\MaterialDesignInXamlToolkit\MainDemo.Wpf\bin\Debug",
                     Description = "Dragablz Tab Control",
-                    Compress = "True",
+                    IsCompress = true,
                     IsAudiable = true
                 },
                 new SelectableViewModel
@@ -88,7 +88,7 @@ namespace FPV_Video_Manager
                     Code = 'P',
                     Name = "Predator",
                     Description = "If it bleeds, we can kill it",
-                    Compress = "False"
+                    IsCompress = false
                 }
             };
         }
@@ -102,15 +102,6 @@ namespace FPV_Video_Manager
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public IEnumerable<string> CompressItems
-        {
-            get
-            {
-                yield return "True";
-                yield return "False";
-            }
-        }
-
     }
     public class SelectableViewModel : INotifyPropertyChanged
     {
@@ -119,7 +110,7 @@ namespace FPV_Video_Manager
         private string _description;
         private char _code;
         private double _numeric;
-        private string _compress;
+        private bool _isCompress;
         private bool _isAudiable;
 
         public bool IsSelected
@@ -177,13 +168,13 @@ namespace FPV_Video_Manager
             }
         }
 
-        public string Compress
+        public bool IsCompress
         {
-            get { return _compress; }
+            get { return _isCompress; }
             set
             {
-                if (_compress == value) return;
-                _compress = value;
+                if (_isCompress == value) return;
+                _isCompress = value;
                 OnPropertyChanged();
             }
         }
