@@ -96,6 +96,7 @@
     <Compile Include="Dialoge\RecordConfiguration.xaml.cs">
       <DependentUpon>RecordConfiguration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GlobalVariables.cs" />
     <Compile Include="InterfaceControls\MainListingHeader.xaml.cs">
       <DependentUpon>MainListingHeader.xaml</DependentUpon>
     </Compile>

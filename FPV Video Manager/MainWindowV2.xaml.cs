@@ -23,9 +23,11 @@ namespace FPV_Video_Manager
     /// </summary>
     public partial class MainWindowV2 : Window
     {
+        GlobalVariables Globals = new GlobalVariables();
         public MainWindowV2()
         {
             InitializeComponent();
+            Globals.MWV2 = this;
             MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingHeader(), IsHitTestVisible = false });
         }
 
@@ -37,7 +39,10 @@ namespace FPV_Video_Manager
 
         private void MenuItemEditNew_Click(object sender, RoutedEventArgs e)
         {
-            MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingRecord() });
+            var TargetContent = new InterfaceControls.MainListingRecord();
+            ListBoxItem LBI = new ListBoxItem() { Content = TargetContent };
+            TargetContent.ParrentLBI = LBI;
+            MainListingListBox.Items.Add(LBI);
         }
     }
 }

@@ -21,11 +21,13 @@ namespace FPV_Video_Manager.InterfaceControls
     /// </summary>
     public partial class MainListingRecord : UserControl
     {
+        GlobalVariables Globals = new GlobalVariables();
         public bool recordComitted = false;
         public bool elementChanged = false;
-
+        public ListBoxItem ParrentLBI = null;
         public bool audiableNotification = false;
         public bool autoCompression = false;
+
         public MainListingRecord()
         {
             InitializeComponent();
@@ -119,6 +121,7 @@ namespace FPV_Video_Manager.InterfaceControls
             if (elementChanged)
             {
                 StatusTextBox.Text = "Pending Record Save...";
+                recordComitted = false;
                 return;
             }
 
@@ -131,7 +134,13 @@ namespace FPV_Video_Manager.InterfaceControls
         private void RecordSaveButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             elementChanged = false;
+            recordComitted = true;
             StatusUpdate();
+        }
+
+        private void RecordTrashButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Globals.MWV2.MainListingListBox.Items.Remove(ParrentLBI);
         }
     }
 }
