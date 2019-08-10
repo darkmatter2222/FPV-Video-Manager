@@ -23,6 +23,8 @@ namespace FPV_Video_Manager.Dialoge
         public RecordConfiguration(bool _audiableNotification, bool _autoCompression)
         {
             InitializeComponent();
+            AudiableCheckBox.IsChecked = _audiableNotification;
+            AutoCompressionCheckBox.IsChecked = _autoCompression;
         }
     }
 }

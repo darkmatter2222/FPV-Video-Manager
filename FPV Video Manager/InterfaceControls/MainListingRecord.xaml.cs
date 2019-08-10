@@ -21,11 +21,15 @@ namespace FPV_Video_Manager.InterfaceControls
     /// </summary>
     public partial class MainListingRecord : UserControl
     {
+        public bool recordComitted = false;
+        public bool elementChanged = false;
+
         public bool audiableNotification = false;
         public bool autoCompression = false;
         public MainListingRecord()
         {
             InitializeComponent();
+            StatusUpdate();
         }
 
         private async void SourceElip_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -34,7 +38,13 @@ namespace FPV_Video_Manager.InterfaceControls
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
-            SourceTextBox.Text = view.TargetTextBox.Text;
+            if (!SourceTextBox.Text.Equals(view.TargetTextBox.Text))
+            {
+                elementChanged = true;
+                SourceTextBox.Text = view.TargetTextBox.Text;
+            }
+
+            StatusUpdate();
         }
 
         private async void DestElip_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -43,7 +53,13 @@ namespace FPV_Video_Manager.InterfaceControls
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
-            DestTextBox.Text = view.TargetTextBox.Text;
+            if (!DestTextBox.Text.Equals(view.TargetTextBox.Text))
+            {
+                elementChanged = true;
+                DestTextBox.Text = view.TargetTextBox.Text;
+            }
+
+            StatusUpdate();
         }
 
         private async void SettingsButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -51,11 +67,53 @@ namespace FPV_Video_Manager.InterfaceControls
             var view = new Dialoge.RecordConfiguration(audiableNotification, autoCompression);
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
+
+            if (audiableNotification != (view.AudiableCheckBox.IsChecked ?? false))
+            {
+                elementChanged = true;
+                audiableNotification = view.AudiableCheckBox.IsChecked ?? false;
+            }
+
+            if (autoCompression != (view.AutoCompressionCheckBox.IsChecked ?? false))
+            {
+                elementChanged = true;
+                autoCompression = view.AutoCompressionCheckBox.IsChecked ?? false;
+            }
+
+            StatusUpdate();
         }
 
         private void ClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
             Console.WriteLine("You can intercept the closing event, and cancel here.");
+        }
+
+        public void StatusUpdate()
+        {
+            bool RecordComplete = true;
+
+            if (string.IsNullOrWhiteSpace(SourceTextBox.Text) || SourceTextBox.Text.Length < 1)
+                RecordComplete = false;
+
+            if (string.IsNullOrWhiteSpace(DestTextBox.Text) || DestTextBox.Text.Length < 1)
+                RecordComplete = false;
+
+            if (!RecordComplete)
+            {
+                StatusTextBox.Text = "Pending Record Completion...";
+                return;
+            }
+
+            if (elementChanged)
+            {
+                StatusTextBox.Text = "Pending Record Save...";
+                return;
+            }
+
+            StatusTextBox.Text = "Pending Engine Cycle";
+            return;
+
+            // perform record Saved Check
         }
     }
 }

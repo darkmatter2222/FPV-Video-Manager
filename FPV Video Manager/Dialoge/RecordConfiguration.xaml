@@ -14,7 +14,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FPV_Video_Manager.Dialoge"
              mc:Ignorable="d" 
-             Height="193.364" Width="485.803">
+             Height="90.123" Width="353.858">
     <Grid Margin="16">
         <StackPanel Orientation="Horizontal"
                     Margin="0,0,0,-0.5" HorizontalAlignment="Right" Width="79" Height="30" VerticalAlignment="Bottom">
