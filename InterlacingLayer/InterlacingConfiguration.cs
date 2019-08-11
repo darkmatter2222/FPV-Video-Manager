@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace InterlacingLayer
 {
-    class InterlacingConfiguration
+    public class InterlacingConfiguration
     {
         private static JObject ConfigFile;
         private static EngineConfig _Config;
@@ -15,7 +15,10 @@ namespace InterlacingLayer
         private static string AppConfigFile = $@"{AppConfigDirectory}\EngineConfig.json";
     }
 
-    class EngineConfig
+    public class EngineConfig
     {
+        public string source = "";
+        public string destination = "";
+        public string sourceID = "";
     }
 }

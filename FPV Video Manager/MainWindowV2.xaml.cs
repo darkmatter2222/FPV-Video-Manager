@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using InterlacingLayer;
 
 namespace FPV_Video_Manager
 {
@@ -43,6 +44,19 @@ namespace FPV_Video_Manager
             ListBoxItem LBI = new ListBoxItem() { Content = TargetContent };
             TargetContent.ParrentLBI = LBI;
             MainListingListBox.Items.Add(LBI);
+        }
+
+        public void AddConfigToInterface(string[] sourceID, List<EngineConfig> ECL)
+        {
+            
+        }
+
+        public void RemoveConfigFromInterface()
+        {
+            foreach (ListBoxItem LBI in MainListingListBox.Items)
+            {
+                
+            }
         }
     }
 }

@@ -201,6 +201,10 @@
       <Project>{c783d12d-8ec7-4967-9f75-127a2cd7d75c}</Project>
       <Name>Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InterlacingLayer\InterlacingLayer.csproj">
+      <Project>{f48d320c-f3c3-4f4b-af0a-c4f3231cd002}</Project>
+      <Name>InterlacingLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon.ico">

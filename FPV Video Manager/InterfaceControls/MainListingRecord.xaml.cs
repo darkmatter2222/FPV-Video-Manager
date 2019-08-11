@@ -134,8 +134,12 @@ namespace FPV_Video_Manager.InterfaceControls
 
         private void RecordSaveButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (sourceID.Equals("Pending Save..."))
+                sourceID = Guid.NewGuid().ToString();
+
             elementChanged = false;
             recordComitted = true;
+
             StatusUpdate();
         }
 
