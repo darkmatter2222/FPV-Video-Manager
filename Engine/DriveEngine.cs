@@ -191,7 +191,7 @@ namespace Engine
             }
             catch
             {
-                new InterlacingLayer.InterlacingConfiguration().Config = null;
+                sourceID = null;
             }
         }
 
@@ -202,13 +202,10 @@ namespace Engine
 
         public void CreateBaseConfig(string _sourceID)
         {
-            if (new InterlacingLayer.InterlacingConfiguration().Config == null)
-            {
-                File.Create($@"{Name}\FPVVideoManagerV2.json").Close();
-                JObject JO = JObject.FromObject("{\"sourceID\":\"" + _sourceID + "\" }");
-                File.WriteAllText($@"{Name}\FPVVideoManagerV2.json", JO.ToString());
-                sourceID = _sourceID;
-            }
+            File.Create($@"{Name}\FPVVideoManagerV2.json").Close();
+            JObject JO = JObject.FromObject("{\"sourceID\":\"" + _sourceID + "\" }");
+            File.WriteAllText($@"{Name}\FPVVideoManagerV2.json", JO.ToString());
+            sourceID = _sourceID;
         }
     }
 }

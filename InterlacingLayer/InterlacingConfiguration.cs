@@ -40,6 +40,11 @@ namespace InterlacingLayer
         {
             return Config.recordConfigs;
         }
+
+        public void LoadRecords()
+        {
+            Config = new Records();
+        }
     }
 
     public class Records

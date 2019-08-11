@@ -16,6 +16,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using InterlacingLayer;
+using Engine;
 
 namespace FPV_Video_Manager
 {
@@ -25,11 +26,39 @@ namespace FPV_Video_Manager
     public partial class MainWindowV2 : Window
     {
         GlobalVariables Globals = new GlobalVariables();
+        DriveEngine driveEngine = new DriveEngine();
+
         public MainWindowV2()
         {
+            new InterlacingConfiguration().LoadRecords();
+
+            driveEngine.InitializeEngine();
+            driveEngine.DriveChange += DriveEngine__DriveChange;
+
             InitializeComponent();
             Globals.MWV2 = this;
             MainListingListBox.Items.Add(new ListBoxItem() { Content = new InterfaceControls.MainListingHeader(), IsHitTestVisible = false });
+        }
+
+
+        private void DriveEngine__DriveChange(List<DriveInformation> _LDI, EventArgs e)
+        {
+            Dispatcher.Invoke(new Action(() => UpdateInterfaceInterlacing(_LDI)));
+        }
+
+        public void UpdateInterfaceInterlacing(List<DriveInformation> _LDI)
+        {
+            List<string> DesieredIDs = new List<string>();
+
+            foreach (DriveInformation driveInformation in _LDI)
+            {
+                if (driveInformation.sourceID != null)
+                {
+                    DesieredIDs.Add(driveInformation.sourceID);
+                }
+            }
+
+            UpdateInterface(DesieredIDs.ToArray());
         }
 
         private void MainListingListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -57,9 +86,12 @@ namespace FPV_Video_Manager
                 bool IDOnInterface = false;
                 foreach (ListBoxItem LBI in MainListingListBox.Items)
                 {
-                    if (((RecordConfig)LBI.Content).sourceID.Equals(DesieredID))
+                    if (LBI.Content.GetType() == typeof(RecordConfig))
                     {
-                        IDOnInterface = true;
+                        if (((RecordConfig)LBI.Content).sourceID.Equals(DesieredID))
+                        {
+                            IDOnInterface = true;
+                        }
                     }
                 }
 
@@ -77,11 +109,6 @@ namespace FPV_Video_Manager
                             recordAdded = true;
                             break;
                         }
-                    }
-
-                    if (!recordAdded)
-                    {
-                        MessageBox.Show("ShitHitFan?");
                     }
                 }
             }

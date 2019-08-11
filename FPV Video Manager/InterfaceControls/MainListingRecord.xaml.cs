@@ -24,6 +24,7 @@ namespace FPV_Video_Manager.InterfaceControls
     {
         GlobalVariables Globals = new GlobalVariables();
         RecordConfig recordConfig;
+        InterlacingLayer.InterlacingConfiguration interlacingConfiguration = new InterlacingConfiguration();
 
         public bool recordComitted = false;
         public bool elementChanged = false;
@@ -172,6 +173,8 @@ namespace FPV_Video_Manager.InterfaceControls
         {
             if (recordConfig.sourceID.Equals("Pending Save..."))
                 recordConfig.sourceID = Guid.NewGuid().ToString();
+
+            interlacingConfiguration.SaveRecord(recordConfig);
 
             elementChanged = false;
             recordComitted = true;
