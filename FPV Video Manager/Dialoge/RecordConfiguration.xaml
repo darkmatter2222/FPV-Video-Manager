@@ -14,7 +14,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FPV_Video_Manager.Dialoge"
              mc:Ignorable="d" 
-             Height="389.308" Width="360.608">
+             Height="253.975" Width="730.941">
     <Grid Margin="16">
         <StackPanel Orientation="Horizontal"
                     Margin="0,0,0,0" HorizontalAlignment="Right"  VerticalAlignment="Bottom">
@@ -23,12 +23,11 @@
         </StackPanel>
         <CheckBox x:Name="AudiableCheckBox" Content="Audable Notifications" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="AutoCompressionCheckBox" Content="Auto File Compression" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="SourceIDTextBox" Text="" materialDesign:HintAssist.Hint="Source ID" Height="42" Margin="10,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  IsReadOnly="True"/>
-        <TextBox x:Name="TargetDateTimeFormat" Text="" wpf:HintAssist.Hint="Destination Folder Date Time Format" Height="42" Margin="10,198,30.5,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TargetDateTimeFormat_TextChanged"/>
-        <materialDesign:PackIcon x:Name="TimeFormatQuestionButton" Kind="QuestionMarkRhombusOutline" Margin="282,218,0,0" Background="#00000000" PreviewMouseDown="TimeFormatQuestionButton_PreviewMouseDown" />
-        <materialDesign:PackIcon x:Name="DestinationDateTimeFormatValidCheckMark" Kind="CheckboxMarkedCircleOutline" Margin="302,218,0,0" Foreground="#DD00C11F" />
-        <Label x:Name="SampleFormatLabel" Content="Label" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" FontSize="8" Padding="0"/>
-        <ComboBox x:Name="TargetTimeZoneComboBox" Margin="10,151,10.5,0" VerticalAlignment="Top" Height="42" materialDesign:HintAssist.Hint="Time Zone" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+        <TextBox x:Name="SourceIDTextBox" Text="" materialDesign:HintAssist.Hint="Source ID" Height="42" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  IsReadOnly="True" HorizontalAlignment="Left" Width="308"/>
+        <TextBox x:Name="TargetDateTimeFormat" Text="" wpf:HintAssist.Hint="Destination Folder Date Time Format" Height="42" Margin="362,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TargetDateTimeFormat_TextChanged" ToolTip="This will be the folder/zip name." HorizontalAlignment="Left" Width="288"/>
+        <materialDesign:PackIcon x:Name="TimeFormatQuestionButton" Kind="QuestionMarkRhombusOutline" Margin="634,21,0,0" Background="#00000000" PreviewMouseDown="TimeFormatQuestionButton_PreviewMouseDown" />
+        <materialDesign:PackIcon x:Name="DestinationDateTimeFormatValidCheckMark" Kind="CheckboxMarkedCircleOutline" Margin="654,21,0,0" Foreground="#DD00C11F" />
+        <ComboBox x:Name="TargetTimeZoneComboBox" Margin="10,151,0,0" VerticalAlignment="Top" Height="42" materialDesign:HintAssist.Hint="Time Zone" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" Width="308">
             <ComboBoxItem>
                 System Time
             </ComboBoxItem>
@@ -36,9 +35,14 @@
                 UTC Time
             </ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="FileNamingComboBox" Margin="10,104,10.5,0" VerticalAlignment="Top" Height="42" wpf:HintAssist.Hint="File Naming" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ToolTip="The file name when moved from source to destination. The file extension will always be preserved.">
+        <ComboBox x:Name="FileNamingComboBox" Margin="10,104,0,0" VerticalAlignment="Top" Height="42" wpf:HintAssist.Hint="File Naming" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ToolTip="The file name when moved from source to destination. The file extension will always be preserved." HorizontalAlignment="Left" Width="308">
             <ComboBoxItem Content="Preserve File Name" ToolTip="Like for Like plain file move."/>
             <ComboBoxItem Content="Rename Numericly" ToolTip="Move the file and rename 0000001.mp4, 0000002.txt, 0000003.wav, etc... File extension will be preserved"/>
         </ComboBox>
+        <TextBox x:Name="TargetPrefix" Text="" wpf:HintAssist.Hint="Target Prefix" Height="42" Margin="362,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Width="288" TextChanged="TargetPrefix_TextChanged"/>
+        <wpf:PackIcon x:Name="DestinationPrefixValidCheckMark" Kind="CheckboxMarkedCircleOutline" Margin="654,67,0,0" Foreground="#DD00C11F" />
+        <TextBox x:Name="TargetSuffix" Text="" wpf:HintAssist.Hint="Target Suffix" Height="42" Margin="362,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Width="288" TextChanged="TargetSuffix_TextChanged"/>
+        <wpf:PackIcon x:Name="DestinationSuffixValidCheckMark" Kind="CheckboxMarkedCircleOutline" Margin="654,114,0,0" Foreground="#DD00C11F" />
+        <Label Name="FinalFormatLabel" Content="Final Format: " HorizontalAlignment="Left" Margin="362,141,0,0" VerticalAlignment="Top" Padding="0"/>
     </Grid>
 </UserControl>
