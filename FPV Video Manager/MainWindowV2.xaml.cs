@@ -54,7 +54,7 @@ namespace FPV_Video_Manager
 
         private void MenuItemEditNew_Click(object sender, RoutedEventArgs e)
         {
-            var TargetContent = new InterfaceControls.MainListingRecord(new RecordConfig());
+            var TargetContent = new InterfaceControls.MainListingRecord(new RecordConfig(), null);
             ListBoxItem LBI = new ListBoxItem() { Content = TargetContent };
             TargetContent.ParrentLBI = LBI;
             MainListingListBox.Items.Add(LBI);
@@ -87,7 +87,7 @@ namespace FPV_Video_Manager
                         {
                             if (recordConfig.sourceID.Equals(driveInformation.sourceID))
                             {
-                                var TargetContent = new InterfaceControls.MainListingRecord(recordConfig);
+                                var TargetContent = new InterfaceControls.MainListingRecord(recordConfig, driveInformation);
                                 ListBoxItem LBI = new ListBoxItem() { Content = TargetContent };
                                 TargetContent.ParrentLBI = LBI;
                                 MainListingListBox.Items.Add(LBI);

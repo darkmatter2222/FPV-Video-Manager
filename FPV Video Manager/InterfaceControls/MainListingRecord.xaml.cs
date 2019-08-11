@@ -31,13 +31,24 @@ namespace FPV_Video_Manager.InterfaceControls
         public bool recordComitted = false;
         public bool elementChanged = false;
         public ListBoxItem ParrentLBI = null;
+        public DriveInformation driveInformation;
 
-        public MainListingRecord(RecordConfig _rc)
+        public MainListingRecord(RecordConfig _rc, DriveInformation _driveInformation)
         {
             recordConfig = _rc;
+            driveInformation = _driveInformation;
+            
             InitializeComponent();
+            if (_driveInformation != null)
+            {
+                SourceTextBox.Text = recordConfig.source.Replace(recordConfig.sourceID, driveInformation.Name);
+                
+            }
+            else
+            {
+                SourceTextBox.Text = recordConfig.source;
+            }
 
-            SourceTextBox.Text = recordConfig.source;
             DestTextBox.Text = recordConfig.destination;
 
             StatusUpdate();
@@ -190,14 +201,23 @@ namespace FPV_Video_Manager.InterfaceControls
                 return;
             }
 
-            foreach (DriveInformation Drive in new DriveEngine().knownConnectedDrives)
+            if (driveInformation == null)
             {
-                if (Drive.Name.Equals(sourceRoot))
+                foreach (DriveInformation Drive in new DriveEngine().knownConnectedDrives)
                 {
-                    recordConfig.sourceID = Drive.GetIDElseCreateandGet();
-                    break;
+                    if (Drive.Name.Equals(sourceRoot))
+                    {
+                        recordConfig.sourceID = Drive.GetIDElseCreateandGet();
+                        break;
+                    }
                 }
             }
+            else
+            {
+                recordConfig.sourceID = driveInformation.GetIDElseCreateandGet();
+            }
+
+            recordConfig.source = recordConfig.source.Replace(sourceRoot, recordConfig.sourceID);
 
             interlacingConfiguration.SaveRecord(recordConfig);
 
