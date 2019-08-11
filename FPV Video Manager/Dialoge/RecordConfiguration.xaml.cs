@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using InterlacingLayer;
 
 namespace FPV_Video_Manager.Dialoge
 {
@@ -21,18 +22,28 @@ namespace FPV_Video_Manager.Dialoge
     /// </summary>
     public partial class RecordConfiguration : UserControl
     {
+        RecordConfig recordConfig;
         public bool isCxled = false;
-        public RecordConfiguration(bool _audiableNotification, bool _autoCompression, string _sourceID, string _destinationTargetFormat, string _targetTimeZone)
+        public RecordConfiguration(RecordConfig _recordConfig)
         {
+            recordConfig = _recordConfig;
             InitializeComponent();
-            AudiableCheckBox.IsChecked = _audiableNotification;
-            AutoCompressionCheckBox.IsChecked = _autoCompression;
-            SourceIDTextBox.Text = _sourceID;
+            LoadDataToInterface();
+        }
 
+        public void LoadDataToInterface()
+        {
+            // order matters
+
+            AudiableCheckBox.IsChecked = recordConfig.audiableNotification;
+            AutoCompressionCheckBox.IsChecked = recordConfig.autoCompression;
+            SourceIDTextBox.Text = recordConfig.sourceID;
+            
+            // time xone
             bool recordFound = false;
             foreach (ComboBoxItem CBI in TargetTimeZoneComboBox.Items)
             {
-                if (CBI.Content.Equals(_targetTimeZone))
+                if (CBI.Content.Equals(recordConfig.targetTimeZone))
                 {
                     TargetTimeZoneComboBox.SelectedItem = CBI;
                     recordFound = true;
@@ -42,10 +53,29 @@ namespace FPV_Video_Manager.Dialoge
 
             if (!recordFound)
             {
-                MessageBox.Show($@"Heads up, Unable to set timezone {_targetTimeZone} as it does not exist in the combo box any longer. Please reselect and save.");
+                MessageBox.Show($@"Heads up, Unable to set timezone to {recordConfig.targetTimeZone} as it does not exist in the combo box any longer. Please reselect and save.");
             }
 
-            TargetDateTimeFormat.Text = _destinationTargetFormat;
+            // file naming
+            recordFound = false;
+            foreach (ComboBoxItem CBI in FileNamingComboBox.Items)
+            {
+                if (CBI.Content.Equals(recordConfig.fileNameing))
+                {
+                    FileNamingComboBox.SelectedItem = CBI;
+                    recordFound = true;
+                    break;
+                }
+            }
+
+            if (!recordFound)
+            {
+                MessageBox.Show($@"Heads up, Unable to set file nameing to {recordConfig.fileNameing} as it does not exist in the combo box any longer. Please reselect and save.");
+            }
+
+            TargetDateTimeFormat.Text = recordConfig.destinationTargetFormat;
+            TargetPrefix.Text = recordConfig.targetPrefix;
+            TargetSuffix.Text = recordConfig.targetSuffix;
         }
 
         private void TimeFormatQuestionButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -225,6 +255,11 @@ namespace FPV_Video_Manager.Dialoge
         private void CxlButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             isCxled = true;
+        }
+
+        private void TargetTimeZoneComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RenderDecisions();
         }
     }
 }

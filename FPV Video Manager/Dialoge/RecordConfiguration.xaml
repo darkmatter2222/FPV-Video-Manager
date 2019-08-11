@@ -31,7 +31,7 @@
         <TextBox x:Name="TargetDateTimeFormat" Text="" wpf:HintAssist.Hint="Destination Folder Date Time Format" Height="42" Margin="362,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TargetDateTimeFormat_TextChanged" ToolTip="This will be the folder/zip name." HorizontalAlignment="Left" Width="288"/>
         <materialDesign:PackIcon x:Name="TimeFormatQuestionButton" Kind="QuestionMarkRhombusOutline" Margin="634,66,0,0" Background="#00000000" PreviewMouseDown="TimeFormatQuestionButton_PreviewMouseDown" />
         <materialDesign:PackIcon x:Name="DestinationDateTimeFormatValidCheckMark" Kind="CheckboxMarkedCircleOutline" Margin="654,66,0,0" Foreground="#DD00C11F" />
-        <ComboBox x:Name="TargetTimeZoneComboBox" Margin="10,196,0,0" VerticalAlignment="Top" Height="42" materialDesign:HintAssist.Hint="Time Zone" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" Width="308">
+        <ComboBox x:Name="TargetTimeZoneComboBox" Margin="10,196,0,0" VerticalAlignment="Top" Height="42" materialDesign:HintAssist.Hint="Time Zone" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" Width="308" SelectionChanged="TargetTimeZoneComboBox_SelectionChanged">
             <ComboBoxItem>
                 System Time
             </ComboBoxItem>

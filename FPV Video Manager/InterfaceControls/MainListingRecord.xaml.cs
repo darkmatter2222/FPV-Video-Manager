@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using InterlacingLayer;
 
 namespace FPV_Video_Manager.InterfaceControls
 {
@@ -22,17 +23,15 @@ namespace FPV_Video_Manager.InterfaceControls
     public partial class MainListingRecord : UserControl
     {
         GlobalVariables Globals = new GlobalVariables();
+        RecordConfig recordConfig;
+
         public bool recordComitted = false;
         public bool elementChanged = false;
         public ListBoxItem ParrentLBI = null;
-        public bool audiableNotification = false;
-        public bool autoCompression = false;
-        public string sourceID = "Pending Save...";
-        public string targetTimeZone = "System Time";
-        public string destinationTargetFormat = "MM-dd-yy H-mm-ss fffffff";
 
-        public MainListingRecord()
+        public MainListingRecord(RecordConfig _rc)
         {
+            recordConfig = _rc;
             InitializeComponent();
             StatusUpdate();
         }
@@ -75,21 +74,21 @@ namespace FPV_Video_Manager.InterfaceControls
 
         private async void RecordSettingsButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var view = new Dialoge.RecordConfiguration(audiableNotification, autoCompression, sourceID, destinationTargetFormat, targetTimeZone);
+            var view = new Dialoge.RecordConfiguration(recordConfig);
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
-            if (audiableNotification != (view.AudiableCheckBox.IsChecked ?? false))
-            {
-                elementChanged = true;
-                audiableNotification = view.AudiableCheckBox.IsChecked ?? false;
-            }
+            //if (audiableNotification != (view.AudiableCheckBox.IsChecked ?? false))
+            //{
+            //    elementChanged = true;
+            //    audiableNotification = view.AudiableCheckBox.IsChecked ?? false;
+            //}
 
-            if (autoCompression != (view.AutoCompressionCheckBox.IsChecked ?? false))
-            {
-                elementChanged = true;
-                autoCompression = view.AutoCompressionCheckBox.IsChecked ?? false;
-            }
+            //if (autoCompression != (view.AutoCompressionCheckBox.IsChecked ?? false))
+            //{
+            //    elementChanged = true;
+            //    autoCompression = view.AutoCompressionCheckBox.IsChecked ?? false;
+            //}
 
             StatusUpdate();
         }
@@ -136,8 +135,8 @@ namespace FPV_Video_Manager.InterfaceControls
 
         private void RecordSaveButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (sourceID.Equals("Pending Save..."))
-                sourceID = Guid.NewGuid().ToString();
+            if (recordConfig.sourceID.Equals("Pending Save..."))
+                recordConfig.sourceID = Guid.NewGuid().ToString();
 
             elementChanged = false;
             recordComitted = true;

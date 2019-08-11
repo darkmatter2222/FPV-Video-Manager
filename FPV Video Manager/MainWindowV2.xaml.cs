@@ -40,13 +40,13 @@ namespace FPV_Video_Manager
 
         private void MenuItemEditNew_Click(object sender, RoutedEventArgs e)
         {
-            var TargetContent = new InterfaceControls.MainListingRecord();
+            var TargetContent = new InterfaceControls.MainListingRecord(new RecordConfig());
             ListBoxItem LBI = new ListBoxItem() { Content = TargetContent };
             TargetContent.ParrentLBI = LBI;
             MainListingListBox.Items.Add(LBI);
         }
 
-        public void AddConfigToInterface(string[] sourceID, List<EngineConfig> ECL)
+        public void AddConfigToInterface(string[] sourceID)
         {
             
         }
