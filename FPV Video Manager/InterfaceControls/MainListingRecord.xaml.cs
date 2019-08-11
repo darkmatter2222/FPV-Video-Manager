@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
 using InterlacingLayer;
+using System.IO;
+using Engine;
 
 namespace FPV_Video_Manager.InterfaceControls
 {
@@ -177,8 +179,17 @@ namespace FPV_Video_Manager.InterfaceControls
 
         private void RecordSaveButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (recordConfig.sourceID.Equals("Pending Save..."))
-                recordConfig.sourceID = Guid.NewGuid().ToString();
+            // get ID from Source, missing? create
+            string root = Directory.GetDirectoryRoot(SourceTextBox.Text);
+
+            foreach (DriveInformation Drive in new DriveEngine().knownConnectedDrives)
+            {
+                if (Drive.Name.Equals(root))
+                {
+                    recordConfig.sourceID = Drive.GetIDElseCreateandGet();
+                    break;
+                }
+            }
 
             interlacingConfiguration.SaveRecord(recordConfig);
 

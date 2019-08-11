@@ -105,7 +105,6 @@ namespace FPV_Video_Manager
                             TargetContent.ParrentLBI = LBI;
                             MainListingListBox.Items.Add(LBI);
                             recordAdded = true;
-                            break;
                         }
                     }
                 }

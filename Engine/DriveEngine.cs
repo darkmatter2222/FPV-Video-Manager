@@ -179,6 +179,16 @@ namespace Engine
         public DateTime driveMountTime;
         public string sourceID;
 
+        public string GetIDElseCreateandGet()
+        {
+            if (File.Exists($@"{Name}\FPVVideoManagerV2.json"))
+                sourceID = JObject.Parse(File.ReadAllText($@"{Name}\FPVVideoManagerV2.json"))["sourceID"].ToString();
+            else
+                CreateBaseConfig();
+
+            return sourceID;
+        }
+
         public void LoadFromConfig()
         {
             driveMountTime = DateTime.UtcNow;
@@ -200,12 +210,13 @@ namespace Engine
             File.WriteAllText($@"{Name}\FPVVideoManagerV2.json", new InterlacingLayer.InterlacingConfiguration().Config.ToString());
         }
 
-        public void CreateBaseConfig(string _sourceID)
+        public void CreateBaseConfig()
         {
+            string UID = Guid.NewGuid().ToString();
             File.Create($@"{Name}\FPVVideoManagerV2.json").Close();
-            JObject JO = JObject.FromObject("{\"sourceID\":\"" + _sourceID + "\" }");
+            JObject JO = JObject.FromObject("{\"sourceID\":\"" + UID + "\" }");
             File.WriteAllText($@"{Name}\FPVVideoManagerV2.json", JO.ToString());
-            sourceID = _sourceID;
+            sourceID = UID;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace InterlacingLayer
 {
     public class InterlacingConfiguration
     {
+        
         private static JObject ConfigFile;
         private static Records _Config;
         public Records Config { get { return _Config; } set { _Config = value; } }
@@ -41,6 +42,10 @@ namespace InterlacingLayer
 
         public void save()
         {
+            // check to see if source has the config file, if not create it
+
+
+
             File.WriteAllText($@"{AppConfigFile}", JObject.FromObject(Config).ToString());
         }
 
