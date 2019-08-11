@@ -13,7 +13,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FPV_Video_Manager"
         mc:Ignorable="d"
-        Title="MainWindowV2" Height="500" Width="1300">
+        Title="MainWindowV2" Height="500" Width="1300" Closing="Window_Closing">
     <Window.Resources>
 
     </Window.Resources>

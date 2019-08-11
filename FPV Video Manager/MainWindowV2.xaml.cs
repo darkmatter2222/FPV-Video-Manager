@@ -113,5 +113,11 @@ namespace FPV_Video_Manager
                 }
             }
         }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            driveEngine.TerminateEngine();
+            new GlobalEngineSwitch().AllEnginesRunning = false;
+        }
     }
 }
