@@ -43,22 +43,7 @@ namespace FPV_Video_Manager
 
         private void DriveEngine__DriveChange(List<DriveInformation> _LDI, EventArgs e)
         {
-            Dispatcher.Invoke(new Action(() => UpdateInterfaceInterlacing(_LDI)));
-        }
-
-        public void UpdateInterfaceInterlacing(List<DriveInformation> _LDI)
-        {
-            List<string> DesieredIDs = new List<string>();
-
-            foreach (DriveInformation driveInformation in _LDI)
-            {
-                if (driveInformation.sourceID != null)
-                {
-                    DesieredIDs.Add(driveInformation.sourceID);
-                }
-            }
-
-            UpdateInterface(DesieredIDs.ToArray());
+            Dispatcher.Invoke(new Action(() => UpdateInterface(_LDI)));
         }
 
         private void MainListingListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -75,36 +60,39 @@ namespace FPV_Video_Manager
             MainListingListBox.Items.Add(LBI);
         }
 
-        public void UpdateInterface(string[] DesieredIDs)
+        public void UpdateInterface(List<DriveInformation> _LDI)
         {
             List<ListBoxItem> LBIsToRemove = new List<ListBoxItem>();
 
-            foreach (string DesieredID in DesieredIDs)
+            foreach (DriveInformation driveInformation in _LDI)
             {
-                bool IDOnInterface = false;
-                foreach (ListBoxItem LBI in MainListingListBox.Items)
+                if (driveInformation.sourceID != null)
                 {
-                    if (LBI.Content.GetType() == typeof(InterfaceControls.MainListingRecord))
+                    bool IDOnInterface = false;
+                    foreach (ListBoxItem LBI in MainListingListBox.Items)
                     {
-                        if (((InterfaceControls.MainListingRecord)LBI.Content).recordConfig.sourceID.Equals(DesieredID))
+                        if (LBI.Content.GetType() == typeof(InterfaceControls.MainListingRecord))
                         {
-                            IDOnInterface = true;
+                            if (((InterfaceControls.MainListingRecord)LBI.Content).recordConfig.sourceID.Equals(driveInformation.sourceID))
+                            {
+                                IDOnInterface = true;
+                            }
                         }
                     }
-                }
 
-                if (!IDOnInterface)
-                {
-                    bool recordAdded = false;
-                    foreach (RecordConfig recordConfig in new InterlacingConfiguration().GetRecords())
+                    if (!IDOnInterface)
                     {
-                        if (recordConfig.sourceID.Equals(DesieredID))
+                        bool recordAdded = false;
+                        foreach (RecordConfig recordConfig in new InterlacingConfiguration().GetRecords())
                         {
-                            var TargetContent = new InterfaceControls.MainListingRecord(recordConfig);
-                            ListBoxItem LBI = new ListBoxItem() { Content = TargetContent };
-                            TargetContent.ParrentLBI = LBI;
-                            MainListingListBox.Items.Add(LBI);
-                            recordAdded = true;
+                            if (recordConfig.sourceID.Equals(driveInformation.sourceID))
+                            {
+                                var TargetContent = new InterfaceControls.MainListingRecord(recordConfig);
+                                ListBoxItem LBI = new ListBoxItem() { Content = TargetContent };
+                                TargetContent.ParrentLBI = LBI;
+                                MainListingListBox.Items.Add(LBI);
+                                recordAdded = true;
+                            }
                         }
                     }
                 }
@@ -112,12 +100,23 @@ namespace FPV_Video_Manager
 
             foreach (ListBoxItem LBI in MainListingListBox.Items)
             {
+                bool idFound = false;
                 if (LBI.Content.GetType() == typeof(InterfaceControls.MainListingRecord))
                 {
-                    if (!DesieredIDs.Contains(((InterfaceControls.MainListingRecord)LBI.Content).recordConfig.sourceID))
+                    foreach (DriveInformation driveInformation in _LDI)
                     {
-                        LBIsToRemove.Add(LBI);
+                        if (driveInformation.sourceID != null)
+                        {
+                            if (driveInformation.sourceID.Equals(((InterfaceControls.MainListingRecord)LBI.Content).recordConfig.sourceID))
+                            {
+                                idFound = true;
+                            }
+                        }
                     }
+                }
+                if (!idFound)
+                {
+                    LBIsToRemove.Add(LBI);
                 }
             }
 

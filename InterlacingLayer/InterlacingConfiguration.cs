@@ -40,6 +40,26 @@ namespace InterlacingLayer
 
         }
 
+        public void DeleteRecord(RecordConfig recordConfig)
+        {
+            int target = 0;
+            bool recordFound = false;
+            for (int x = 0; x < Config.recordConfigs.Count; x++)
+            {
+                if (recordConfig.record_id.Equals(Config.recordConfigs[x].record_id))
+                {
+                    target = x;
+                    recordFound = true;
+                    break;
+                }
+            }
+
+            if (recordFound)
+                Config.recordConfigs.RemoveAt(target);
+
+            save();
+        }
+
         public void save()
         {
             // check to see if source has the config file, if not create it

@@ -180,11 +180,19 @@ namespace FPV_Video_Manager.InterfaceControls
         private void RecordSaveButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             // get ID from Source, missing? create
-            string root = Directory.GetDirectoryRoot(SourceTextBox.Text);
+            string sourceRoot = Directory.GetDirectoryRoot(SourceTextBox.Text);
+            string destRoot = Directory.GetDirectoryRoot(DestTextBox.Text);
+
+            if (sourceRoot.Equals(destRoot))
+            {
+                MessageBox.Show("This app does not support same source and destination root at this time.");
+                // TODO
+                return;
+            }
 
             foreach (DriveInformation Drive in new DriveEngine().knownConnectedDrives)
             {
-                if (Drive.Name.Equals(root))
+                if (Drive.Name.Equals(sourceRoot))
                 {
                     recordConfig.sourceID = Drive.GetIDElseCreateandGet();
                     break;
@@ -205,8 +213,13 @@ namespace FPV_Video_Manager.InterfaceControls
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
-            if(view.IsAccepted)
-                Globals.MWV2.MainListingListBox.Items.Remove(ParrentLBI);
+            if (view.IsAccepted)
+            {
+                interlacingConfiguration.DeleteRecord(recordConfig);
+
+                if (view.IsAccepted)
+                    Globals.MWV2.MainListingListBox.Items.Remove(ParrentLBI);
+            }
         }
     }
 }
