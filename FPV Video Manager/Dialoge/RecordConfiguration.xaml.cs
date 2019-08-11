@@ -21,6 +21,7 @@ namespace FPV_Video_Manager.Dialoge
     /// </summary>
     public partial class RecordConfiguration : UserControl
     {
+        public bool isCxled = false;
         public RecordConfiguration(bool _audiableNotification, bool _autoCompression, string _sourceID, string _destinationTargetFormat, string _targetTimeZone)
         {
             InitializeComponent();
@@ -77,6 +78,7 @@ namespace FPV_Video_Manager.Dialoge
                 // invalid
                 DestinationDateTimeFormatValidCheckMark.Visibility = Visibility.Collapsed;
                 isValid = false;
+                ErrorMessage += "Invalid DateTime Format\r\n";
             }
             else
             {
@@ -90,6 +92,7 @@ namespace FPV_Video_Manager.Dialoge
                     // invalid
                     DestinationDateTimeFormatValidCheckMark.Visibility = Visibility.Collapsed;
                     isValid = false;
+                    ErrorMessage += "Invalid DateTime Format\r\n";
                 }
             }
 
@@ -104,6 +107,7 @@ namespace FPV_Video_Manager.Dialoge
                 // invalid
                 DestinationPrefixValidCheckMark.Visibility = Visibility.Collapsed;
                 isValid = false;
+                ErrorMessage += "Invalid Prtefix\r\n";
             }
 
             // validate suffix
@@ -117,6 +121,7 @@ namespace FPV_Video_Manager.Dialoge
                 // invalid
                 DestinationSuffixValidCheckMark.Visibility = Visibility.Collapsed;
                 isValid = false;
+                ErrorMessage += "Invalid Suffix\r\n";
             }
 
             // construct Result
@@ -131,10 +136,10 @@ namespace FPV_Video_Manager.Dialoge
             if (TargetSuffix.Text.Trim().Length > 0)
                 FinalResult += $@"-{TargetSuffix.Text.ToString()}";
 
-            if (!IsLegal(FinalResult))
+            if (isValid && !IsLegal(FinalResult))
             {
                 isValid = false;
-                ErrorMessage = "<Total Length is greater 200 Chars>";
+                ErrorMessage += "Total Length is greater 200 Chars\r\n";
             }
 
 
@@ -142,14 +147,12 @@ namespace FPV_Video_Manager.Dialoge
             if (isValid)
             {
                 // construct result
-
-                FinalFormatLabel.Content = $@"Final Result: {FinalResult}";
+                FinalResultTextBlock.Text = $"Final Result:\r\n{FinalResult}";
                 AcceptButton.IsEnabled = true;
             }
             else
             {
-                DestinationDateTimeFormatValidCheckMark.Visibility = Visibility.Collapsed;
-                FinalFormatLabel.Content = ErrorMessage;
+                FinalResultTextBlock.Text = ErrorMessage;
                 AcceptButton.IsEnabled = false;
             }
         }
@@ -217,6 +220,11 @@ namespace FPV_Video_Manager.Dialoge
         private void TargetSuffix_TextChanged(object sender, TextChangedEventArgs e)
         {
             RenderDecisions();
+        }
+
+        private void CxlButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            isCxled = true;
         }
     }
 }
