@@ -49,6 +49,7 @@ namespace InterlacingLayer
 
     public class RecordConfig
     {
+        public DateTime driveMountTime = DateTime.Now;
         public string record_id = "";
         public string source = "";
         public string destination = "";

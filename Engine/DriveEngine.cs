@@ -177,93 +177,37 @@ namespace Engine
     {
         public string Name = "";
         public DateTime driveMountTime;
-        public string offloadFolderName = "";
-
-        private JObject ConfigFile;
+        public string sourceID;
 
         public void LoadFromConfig()
         {
             driveMountTime = DateTime.UtcNow;
-            offloadFolderName = $@"{driveMountTime.ToString().Replace("/","-").Replace("\\","-").Replace(":","-")}";
             try
             {
-                if (File.Exists($@"{Name}\FPVVideoManager.json"))
-                    ConfigFile = JObject.Parse(File.ReadAllText($@"{Name}\FPVVideoManager.json"));
+                if (File.Exists($@"{Name}\FPVVideoManagerV2.json"))
+                    sourceID = JObject.Parse(File.ReadAllText($@"{Name}\FPVVideoManagerV2.json"))["sourceID"].ToString();
                 else
-                    ConfigFile = null;
+                    sourceID = null;
             }
             catch
             {
-                ConfigFile = null;
-            }
-        }
-
-        public bool isMonitoring
-        {
-            get
-            {
-                bool Monitoring = false;
-                if (ConfigFile != null && ConfigFile["Monitoring"].ToString().Equals("True"))
-                {
-                    Monitoring = true;
-                }
-                return Monitoring;
-            }
-            set
-            {
-                if (ConfigFile == null)
-                {
-                    CreateBaseConfig();
-                }
-                if (value)
-                {
-                    ConfigFile["Monitoring"] = "True";
-                }
-                else
-                {
-                    ConfigFile["Monitoring"] = "False";
-                }
-                save();
-            }
-        }
-
-        public string source
-        {
-            get
-            {
-                return ConfigFile["Source"].ToString();
-            }
-            set
-            {
-                ConfigFile["Source"] = value;
-            }
-        }
-
-        public string destination
-        {
-            get
-            {
-                return ConfigFile["Destination"].ToString();
-            }
-            set
-            {
-                ConfigFile["Destination"] = value;
+                new InterlacingLayer.InterlacingConfiguration().Config = null;
             }
         }
 
         public void save()
         {
-            File.WriteAllText($@"{Name}\FPVVideoManager.json", ConfigFile.ToString());
+            File.WriteAllText($@"{Name}\FPVVideoManagerV2.json", new InterlacingLayer.InterlacingConfiguration().Config.ToString());
         }
 
-        public void CreateBaseConfig()
+        public void CreateBaseConfig(string _sourceID)
         {
-            if (ConfigFile == null)
+            if (new InterlacingLayer.InterlacingConfiguration().Config == null)
             {
-                File.Create($@"{Name}\FPVVideoManager.json").Close();
-                JObject JO = JObject.Parse("{\"Version\": \"1\",\"Monitoring\": \"False\",\"Source\":\"\",\"Destination\":\"\",\"DeleteAfterMobe\":\"False\"}");
-                File.WriteAllText($@"{Name}\FPVVideoManager.json", JO.ToString());
-                ConfigFile = JO;
+                File.Create($@"{Name}\FPVVideoManagerV2.json").Close();
+                JObject JO = JObject.FromObject("{\"sourceID\":\"" + _sourceID + "\" }");
+                File.WriteAllText($@"{Name}\FPVVideoManagerV2.json", JO.ToString());
+                sourceID = _sourceID;
             }
         }
     }
