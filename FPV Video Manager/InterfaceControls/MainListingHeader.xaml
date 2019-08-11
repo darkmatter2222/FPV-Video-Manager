@@ -21,10 +21,10 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Souce" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="0" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content="Destination" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="1" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        
-        <Label Content="Current State" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="2" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content="Action" BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Souce" BorderThickness="0,0,0,1" BorderBrush="#FFDEDEDE"  Grid.Column="0" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Destination" BorderThickness="0,0,0,1" BorderBrush="#FFDEDEDE" Grid.Column="1" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <Label Content="Current State" BorderThickness="0,0,0,1" BorderBrush="#FFDEDEDE" Grid.Column="2" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Action" BorderThickness="0,0,0,1" BorderBrush="#FFDEDEDE" Grid.Column="3" Margin="0,0,0.5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>
