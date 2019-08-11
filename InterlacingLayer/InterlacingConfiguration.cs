@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace InterlacingLayer
 {
@@ -12,7 +13,7 @@ namespace InterlacingLayer
         public Records Config { get { return _Config; } set { _Config = value; } }
         private static string AppDataRoot = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         private static string AppConfigDirectory = $@"{AppDataRoot}\FPVVideoManager";
-        private static string AppConfigFile = $@"{AppConfigDirectory}\EngineConfig.json";
+        private static string AppConfigFile = $@"{AppConfigDirectory}\EngineConfigV2.json";
 
         public void SaveRecord(RecordConfig recordConfig)
         {
@@ -34,6 +35,13 @@ namespace InterlacingLayer
             }
             // perform save
             // TODO
+            save();
+
+        }
+
+        public void save()
+        {
+            File.WriteAllText($@"{AppConfigFile}", JObject.FromObject(Config).ToString());
         }
 
         public List<RecordConfig> GetRecords()
@@ -43,8 +51,25 @@ namespace InterlacingLayer
 
         public void LoadRecords()
         {
-            Config = new Records();
+            if (!Directory.Exists(AppConfigDirectory))
+                Directory.CreateDirectory(AppConfigDirectory);
+
+            if (!File.Exists(AppConfigFile))
+            {
+                File.Create(AppConfigFile).Close();
+                File.WriteAllText(AppConfigFile, JObject.FromObject(new Records()).ToString());
+            }
+            var configText = File.ReadAllText(AppConfigFile);
+            if (string.IsNullOrEmpty(configText))
+            {
+                File.WriteAllText(AppConfigFile, JObject.FromObject(new Records()).ToString());
+                configText = File.ReadAllText(AppConfigFile);
+            }
+            
+            Config = JObject.Parse(configText).ToObject<Records>();
         }
+
+
     }
 
     public class Records
