@@ -192,7 +192,7 @@ namespace Engine
                 else
                     ConfigFile = null;
             }
-            catch
+            catch(Exception e)
             {
                 ConfigFile = null;
             }
@@ -266,5 +266,7 @@ namespace Engine
                 ConfigFile = JO;
             }
         }
+        
+
     }
 }

@@ -28,7 +28,6 @@ namespace FPV_Video_Manager
     /// </summary>
     public partial class MainWindow : Window
     {
-        Config.Configuration appConfig = new Config.Configuration();
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         DriveEngine driveEngine = new DriveEngine();
         private System.Windows.Forms.NotifyIcon notifyIcon = null;
@@ -37,11 +36,6 @@ namespace FPV_Video_Manager
         {
             new Reporting.AppStartup().Execute();
             InitializeComponent();
-
-            SpeakStatusCheckBox.IsChecked = appConfig.Config.speakStages;
-            SpeakStatusCheckBox.Checked += SpeakStatusCheckBox_Checked;
-            SpeakStatusCheckBox.Unchecked += SpeakStatusCheckBox_Unchecked;
-
             driveEngine.DriveChange += DriveEngine_DriveChange;
             driveEngine.InitializeEngine();
 
@@ -148,20 +142,6 @@ namespace FPV_Video_Manager
             {
                 MessageBox.Show("https://github.com/darkmatter2222/FPV-Video-Manager");
             }
-        }
-
-
-
-        private void SpeakStatusCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            appConfig.Config.speakStages = true;
-            appConfig.save();
-        }
-
-        private void SpeakStatusCheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            appConfig.Config.speakStages = false;
-            appConfig.save();
         }
     }
 }

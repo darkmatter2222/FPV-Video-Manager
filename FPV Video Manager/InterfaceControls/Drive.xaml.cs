@@ -57,7 +57,7 @@ namespace FPV_Video_Manager.InterfaceControls
         {
             while (ThreadRunning && new GlobalEngineSwitch().AllEnginesRunning)
             {
-                Thread.Sleep(500);
+                Thread.Sleep(100);
                 try
                 {
                     Dispatcher.Invoke(new Action(() => StatusLabel.Content = "Looking for Content..."));
@@ -67,9 +67,6 @@ namespace FPV_Video_Manager.InterfaceControls
                     if (SourceFiles.Length > 0)
                     {
                         Dispatcher.Invoke(new Action(() => StatusLabel.Content = $@"{SourceFiles.Length} Files Found..."));
-
-
-                        new AudioPlayer.AudioManager().PlayFile(NumberToName(SourceFiles.Length));
 
                         Thread.Sleep(100);
 
@@ -89,35 +86,6 @@ namespace FPV_Video_Manager.InterfaceControls
                 {
                     
                 }
-            }
-        }
-
-        public AudioPlayer.AudioManager.AudioFile NumberToName(int number)
-        {
-            switch (number)
-            {
-                case 1:
-                    return AudioPlayer.AudioManager.AudioFile.OneFR;
-                case 2:
-                    return AudioPlayer.AudioManager.AudioFile.TwoFR;
-                case 3:
-                    return AudioPlayer.AudioManager.AudioFile.ThreeFR;
-                case 4:
-                    return AudioPlayer.AudioManager.AudioFile.FourFR;
-                case 5:
-                    return AudioPlayer.AudioManager.AudioFile.FiveFR;
-                case 6:
-                    return AudioPlayer.AudioManager.AudioFile.SixFR;
-                case 7:
-                    return AudioPlayer.AudioManager.AudioFile.SevenFR;
-                case 8:
-                    return AudioPlayer.AudioManager.AudioFile.EightFR;
-                case 9:
-                    return AudioPlayer.AudioManager.AudioFile.NineFR;
-                case 10:
-                    return AudioPlayer.AudioManager.AudioFile.TenFR;
-                default:
-                    return AudioPlayer.AudioManager.AudioFile.MoreTenFR;
             }
         }
 
