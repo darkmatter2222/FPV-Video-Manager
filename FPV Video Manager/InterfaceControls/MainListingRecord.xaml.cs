@@ -78,17 +78,52 @@ namespace FPV_Video_Manager.InterfaceControls
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
-            //if (audiableNotification != (view.AudiableCheckBox.IsChecked ?? false))
-            //{
-            //    elementChanged = true;
-            //    audiableNotification = view.AudiableCheckBox.IsChecked ?? false;
-            //}
+            if (!view.isCxled)
+            {
+                if (recordConfig.audiableNotification != (view.AudiableCheckBox.IsChecked ?? false))
+                {
+                    elementChanged = true;
+                    recordConfig.audiableNotification = view.AudiableCheckBox.IsChecked ?? false;
+                }
 
-            //if (autoCompression != (view.AutoCompressionCheckBox.IsChecked ?? false))
-            //{
-            //    elementChanged = true;
-            //    autoCompression = view.AutoCompressionCheckBox.IsChecked ?? false;
-            //}
+                if (recordConfig.autoCompression != (view.AutoCompressionCheckBox.IsChecked ?? false))
+                {
+                    elementChanged = true;
+                    recordConfig.autoCompression = view.AutoCompressionCheckBox.IsChecked ?? false;
+                }
+
+                if (!recordConfig.fileNameing.Equals(((ComboBoxItem)view.FileNamingComboBox.SelectedItem).Content.ToString()))
+                {
+                    elementChanged = true;
+                    recordConfig.fileNameing = ((ComboBoxItem)view.FileNamingComboBox.SelectedItem).Content.ToString();
+                }
+
+                if (!recordConfig.targetTimeZone.Equals(((ComboBoxItem)view.TargetTimeZoneComboBox.SelectedItem).Content.ToString()))
+                {
+                    elementChanged = true;
+                    recordConfig.targetTimeZone = ((ComboBoxItem)view.TargetTimeZoneComboBox.SelectedItem).Content.ToString();
+                }
+
+                if (!recordConfig.destinationTargetFormat.Equals(view.TargetDateTimeFormat.Text))
+                {
+                    elementChanged = true;
+                    recordConfig.destinationTargetFormat = view.TargetDateTimeFormat.Text;
+                }
+
+                if (!recordConfig.targetPrefix.Equals(view.TargetPrefix.Text))
+                {
+                    elementChanged = true;
+                    recordConfig.targetPrefix = view.TargetPrefix.Text;
+                }
+
+                if (!recordConfig.targetSuffix.Equals(view.TargetSuffix.Text))
+                {
+                    elementChanged = true;
+                    recordConfig.targetSuffix = view.TargetSuffix.Text;
+                }
+            }
+
+
 
             StatusUpdate();
         }
