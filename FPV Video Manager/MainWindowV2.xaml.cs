@@ -116,7 +116,8 @@ namespace FPV_Video_Manager
                 }
                 if (!idFound)
                 {
-                    LBIsToRemove.Add(LBI);
+                    if (LBI.Content.GetType() == typeof(InterfaceControls.MainListingRecord))
+                        LBIsToRemove.Add(LBI);
                 }
             }
 
