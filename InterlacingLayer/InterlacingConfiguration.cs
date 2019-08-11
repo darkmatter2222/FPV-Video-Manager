@@ -20,5 +20,8 @@ namespace InterlacingLayer
         public string source = "";
         public string destination = "";
         public string sourceID = "";
+        public bool audiableNotification = false;
+        public bool autoCompression = false;
+        public string destinationTargetFormat = "MM-dd-yy H-mm-ss fffffff"; //https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
     }
 }

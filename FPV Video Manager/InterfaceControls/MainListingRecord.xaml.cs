@@ -28,6 +28,8 @@ namespace FPV_Video_Manager.InterfaceControls
         public bool audiableNotification = false;
         public bool autoCompression = false;
         public string sourceID = "Pending Save...";
+        public string targetTimeZone = "System Time";
+        public string destinationTargetFormat = "MM-dd-yy H-mm-ss fffffff";
 
         public MainListingRecord()
         {
@@ -73,7 +75,7 @@ namespace FPV_Video_Manager.InterfaceControls
 
         private async void RecordSettingsButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var view = new Dialoge.RecordConfiguration(audiableNotification, autoCompression, sourceID);
+            var view = new Dialoge.RecordConfiguration(audiableNotification, autoCompression, sourceID, destinationTargetFormat, targetTimeZone);
 
             var result = await DialogHost.Show(view, "RootDialog", ClosingEventHandler);
 
