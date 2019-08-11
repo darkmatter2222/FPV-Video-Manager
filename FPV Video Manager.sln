@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Engine\Engine.csp
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{8FBC2D3F-E8EF-4F7D-8BF1-59265A4D7541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterlacingLayer", "InterlacingLayer\InterlacingLayer.csproj", "{F48D320C-F3C3-4F4B-AF0A-C4F3231CD002}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,12 +24,7 @@ Global
 		{C783D12D-8EC7-4967-9F75-127A2CD7D75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C783D12D-8EC7-4967-9F75-127A2CD7D75C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FBC2D3F-E8EF-4F7D-8BF1-59265A4D7541}.Debug|Any CPU.ActiveCfg = Debug
-		{8FBC2D3F-E8EF-4F7D-8BF1-59265A4D7541}.Debug|Any CPU.Build.0 = Debug
 		{8FBC2D3F-E8EF-4F7D-8BF1-59265A4D7541}.Release|Any CPU.ActiveCfg = Release
-		{F48D320C-F3C3-4F4B-AF0A-C4F3231CD002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F48D320C-F3C3-4F4B-AF0A-C4F3231CD002}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F48D320C-F3C3-4F4B-AF0A-C4F3231CD002}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F48D320C-F3C3-4F4B-AF0A-C4F3231CD002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

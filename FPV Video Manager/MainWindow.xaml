@@ -1,0 +1,64 @@
+﻿<Window x:Class="FPV_Video_Manager.MainWindow"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{StaticResource MaterialDesignFont}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FPV_Video_Manager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Closed="Window_Closed" Icon="icon.ico" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="389*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone x:Name="ColorZone" Mode="PrimaryMid" Padding="16" MouseDown="ColorZone_MouseDown" Height="61" >
+            <DockPanel>
+                <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="True">
+                    <ListBox>
+                        <ListBoxItem x:Name="HeadlessLabel" PreviewMouseDown="HeadlessLabel_PreviewMouseDown">
+                            Go Headless
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="AboutLabel" PreviewMouseDown="AboutLabel_PreviewMouseDown">
+                            About
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="ExitLabel" PreviewMouseDown="ExitLabel_PreviewMouseDown">
+                            Exit
+                        </ListBoxItem>
+                    </ListBox>
+                </materialDesign:PopupBox>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="24">FPV Video Manager</TextBlock>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <Grid Grid.Row="1" Margin="0,0,0,1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="355*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="343*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Drive / Status" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="182" FontSize="16"/>
+                <ListBox x:Name="DrivesList" Grid.Row="1" SelectionChanged="DrivesList_SelectionChanged" HorizontalContentAlignment="Stretch" Margin="0,0,0.5,22"/>
+                <Label x:Name="Versionlabel" Content="Version" HorizontalAlignment="Left" Grid.Row="1" Height="22" VerticalAlignment="Bottom" Padding="5,0,5,5"/>
+            </Grid>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="1" IsEnabled="False"/>
+            <ContentControl Name="MainConfig" Grid.Column="2">
+
+            </ContentControl>
+        </Grid>
+    </Grid>
+</Window>
