@@ -80,7 +80,7 @@ namespace InterlacingLayer
     public class RecordConfig
     {
         public DateTime driveMountTime = DateTime.Now;
-        public string record_id = "";
+        public string record_id = Guid.NewGuid().ToString();
         public string source = "";
         public string destination = "";
         public string sourceID = "Pending Save...";

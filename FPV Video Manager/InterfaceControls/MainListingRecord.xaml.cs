@@ -23,7 +23,7 @@ namespace FPV_Video_Manager.InterfaceControls
     public partial class MainListingRecord : UserControl
     {
         GlobalVariables Globals = new GlobalVariables();
-        RecordConfig recordConfig;
+        public RecordConfig recordConfig;
         InterlacingLayer.InterlacingConfiguration interlacingConfiguration = new InterlacingConfiguration();
 
         public bool recordComitted = false;
@@ -34,6 +34,10 @@ namespace FPV_Video_Manager.InterfaceControls
         {
             recordConfig = _rc;
             InitializeComponent();
+
+            SourceTextBox.Text = recordConfig.source;
+            DestTextBox.Text = recordConfig.destination;
+
             StatusUpdate();
         }
 
@@ -49,6 +53,7 @@ namespace FPV_Video_Manager.InterfaceControls
                 {
                     elementChanged = true;
                     SourceTextBox.Text = view.TargetTextBox.Text;
+                    recordConfig.source = SourceTextBox.Text;
                 }
             }
 
@@ -67,6 +72,7 @@ namespace FPV_Video_Manager.InterfaceControls
                 {
                     elementChanged = true;
                     DestTextBox.Text = view.TargetTextBox.Text;
+                    recordConfig.destination = DestTextBox.Text;
                 }
             }
 

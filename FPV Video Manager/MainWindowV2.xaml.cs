@@ -77,18 +77,16 @@ namespace FPV_Video_Manager
 
         public void UpdateInterface(string[] DesieredIDs)
         {
-            List<string> IDsToAdd = new List<string>();
-            List<string> IDsToRemove = new List<string>();
-
+            List<ListBoxItem> LBIsToRemove = new List<ListBoxItem>();
 
             foreach (string DesieredID in DesieredIDs)
             {
                 bool IDOnInterface = false;
                 foreach (ListBoxItem LBI in MainListingListBox.Items)
                 {
-                    if (LBI.Content.GetType() == typeof(RecordConfig))
+                    if (LBI.Content.GetType() == typeof(InterfaceControls.MainListingRecord))
                     {
-                        if (((RecordConfig)LBI.Content).sourceID.Equals(DesieredID))
+                        if (((InterfaceControls.MainListingRecord)LBI.Content).recordConfig.sourceID.Equals(DesieredID))
                         {
                             IDOnInterface = true;
                         }
@@ -112,6 +110,23 @@ namespace FPV_Video_Manager
                     }
                 }
             }
+
+            foreach (ListBoxItem LBI in MainListingListBox.Items)
+            {
+                if (LBI.Content.GetType() == typeof(InterfaceControls.MainListingRecord))
+                {
+                    if (!DesieredIDs.Contains(((InterfaceControls.MainListingRecord)LBI.Content).recordConfig.sourceID))
+                    {
+                        LBIsToRemove.Add(LBI);
+                    }
+                }
+            }
+
+            foreach (ListBoxItem LBI in LBIsToRemove)
+            {
+                MainListingListBox.Items.Remove(LBI);
+            }
+
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
