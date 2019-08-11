@@ -13,6 +13,33 @@ namespace InterlacingLayer
         private static string AppDataRoot = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         private static string AppConfigDirectory = $@"{AppDataRoot}\FPVVideoManager";
         private static string AppConfigFile = $@"{AppConfigDirectory}\EngineConfig.json";
+
+        public void SaveRecord(RecordConfig recordConfig)
+        {
+            bool recordUpdated = false;
+
+            for(int x=0;x<Config.recordConfigs.Count;x++)
+            {
+                if (recordConfig.record_id.Equals(Config.recordConfigs[x].record_id))
+                {
+                    Config.recordConfigs[x] = recordConfig;
+                    recordUpdated = true;
+                    break;
+                }
+            }
+
+            if (!recordUpdated)
+            {
+                Config.recordConfigs.Add(recordConfig);
+            }
+            // perform save
+            // TODO
+        }
+
+        public List<RecordConfig> GetRecords()
+        {
+            return Config.recordConfigs;
+        }
     }
 
     public class Records

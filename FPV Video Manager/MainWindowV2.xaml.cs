@@ -46,16 +46,44 @@ namespace FPV_Video_Manager
             MainListingListBox.Items.Add(LBI);
         }
 
-        public void AddConfigToInterface(string[] sourceID)
+        public void UpdateInterface(string[] DesieredIDs)
         {
-            
-        }
+            List<string> IDsToAdd = new List<string>();
+            List<string> IDsToRemove = new List<string>();
 
-        public void RemoveConfigFromInterface()
-        {
-            foreach (ListBoxItem LBI in MainListingListBox.Items)
+
+            foreach (string DesieredID in DesieredIDs)
             {
-                
+                bool IDOnInterface = false;
+                foreach (ListBoxItem LBI in MainListingListBox.Items)
+                {
+                    if (((RecordConfig)LBI.Content).sourceID.Equals(DesieredID))
+                    {
+                        IDOnInterface = true;
+                    }
+                }
+
+                if (!IDOnInterface)
+                {
+                    bool recordAdded = false;
+                    foreach (RecordConfig recordConfig in new InterlacingConfiguration().GetRecords())
+                    {
+                        if (recordConfig.sourceID.Equals(DesieredID))
+                        {
+                            var TargetContent = new InterfaceControls.MainListingRecord(recordConfig);
+                            ListBoxItem LBI = new ListBoxItem() { Content = TargetContent };
+                            TargetContent.ParrentLBI = LBI;
+                            MainListingListBox.Items.Add(LBI);
+                            recordAdded = true;
+                            break;
+                        }
+                    }
+
+                    if (!recordAdded)
+                    {
+                        MessageBox.Show("ShitHitFan?");
+                    }
+                }
             }
         }
     }
